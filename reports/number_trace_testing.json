@@ -1,0 +1,36 @@
+{
+  "testing": {
+    "executive_summary_and_results_table": {
+      "sources": [
+        "results/test_summary.json"
+      ]
+    },
+    "coverage_table_and_figure_1": {
+      "sources": [
+        "results/coverage.json",
+        "results/test_summary.json"
+      ]
+    },
+    "metamorphic_table": {
+      "sources": [
+        "experiments/results/testing_measurements.json"
+      ]
+    },
+    "red_team_table": {
+      "sources": [
+        "experiments/results/testing_measurements.json"
+      ],
+      "note": "latest-run rates; defect register quotes earlier-run xfail reasons"
+    },
+    "back_to_back_table": {
+      "sources": [
+        "experiments/results/testing_measurements.json"
+      ]
+    },
+    "defect_register": {
+      "sources": [
+        "results/test_summary.json"
+      ]
+    }
+  }
+}

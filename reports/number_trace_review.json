@@ -1,0 +1,40 @@
+{
+  "review": {
+    "Table 1 and Figure 1": [
+      "results/master_comparison.csv"
+    ],
+    "Table 2 latency": [
+      "results/latency_full.json",
+      "results/latency_size_onnx.json"
+    ],
+    "Other dimensions": [
+      "results/xai.json",
+      "results/calibration.json",
+      "results/test_summary.json",
+      "experiments/results/data_verification.json"
+    ],
+    "Table 3 and Table 8": [
+      "results/test_summary.json"
+    ],
+    "Table 4": [
+      "results/xai.json"
+    ],
+    "Table 5": [
+      "results/ablation.csv"
+    ],
+    "Table 6 Data Card": [
+      "data/dataset_statistics.json",
+      "data/source_repositories.csv",
+      "experiments/results/data_verification.json",
+      "experiments/results/DISCREPANCIES.md (prose)"
+    ],
+    "Table 7 Model Card": [
+      "experiments/runs/full/config.json",
+      "experiments/runs/full/results.json",
+      "results/calibration.json",
+      "results/hpo_small.json",
+      "results/confident_learning.json",
+      "results/noise_robustness.json"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "xai": {
+    "formulation and settings": {
+      "sources": [
+        "results/xai.json"
+      ]
+    },
+    "attribution catalogue table": {
+      "sources": [
+        "results/xai.json"
+      ],
+      "note": "method descriptions are prose; share and n come from the JSON"
+    },
+    "Figure 1 UI screenshot": {
+      "sources": [
+        "reports/screenshots/review_explained_desktop_light.png"
+      ],
+      "note": "real screenshot of the app, no numbers generated"
+    },
+    "Figures 2-5 worked cases + case table": {
+      "sources": [
+        "results/xai_cases_ui.json"
+      ]
+    },
+    "Figure 6 and faithfulness table": {
+      "sources": [
+        "results/xai.json"
+      ]
+    },
+    "latency table": {
+      "sources": [
+        "results/xai.json"
+      ]
+    }
+  },
+  "ablation": {
+    "configuration table": {
+      "sources": [
+        "results/ablation.json"
+      ],
+      "note": "descriptions are prose; status from existence of eval JSONs"
+    },
+    "Tables 1 and 2": {
+      "sources": [
+        "results/eval_full.json",
+        "results/eval_abl_hunk_only.json",
+        "results/eval_abl_intent_only.json",
+        "results/eval_abl_no_consolidation.json",
+        "results/eval_abl_no_focal.json",
+        "results/eval_abl_no_multitask.json",
+        "results/eval_abl_no_denoise.json",
+        "results/eval_student.json",
+        "results/eval_student_nodistill.json",
+        "results/ablation.json (sizes)",
+        "results/latency_full.json",
+        "results/latency_size_onnx.json",
+        "results/kmeans.json"
+      ]
+    },
+    "Figure 1 bar chart and insights": {
+      "sources": [
+        "results/eval_full.json",
+        "results/eval_abl_hunk_only.json",
+        "results/eval_abl_intent_only.json",
+        "results/eval_abl_no_consolidation.json",
+        "results/eval_abl_no_focal.json",
+        "results/eval_abl_no_multitask.json",
+        "results/eval_abl_no_denoise.json",
+        "results/eval_student.json",
+        "results/eval_student_nodistill.json",
+        "results/ablation.json (sizes)",
+        "results/latency_full.json",
+        "results/latency_size_onnx.json"
+      ]
+    }
+  },
+  "gan": {
+    "architecture description": {
+      "sources": [
+        "experiments/results/gan.json"
+      ],
+      "note": "equations describe src/sift/gan_baseline.py; sizes from JSON"
+    },
+    "benchmark table": {
+      "sources": [
+        "experiments/results/gan.json",
+        "results/eval_full.json",
+        "results/latency_full.json",
+        "results/latency_size_onnx.json"
+      ]
+    },
+    "Figure 1 curves, Figure 2 bars, analysis numbers": {
+      "sources": [
+        "experiments/results/gan.json",
+        "results/eval_full.json"
+      ]
+    }
+  }
+}
