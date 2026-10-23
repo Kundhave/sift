@@ -1,0 +1,76 @@
+{
+ "per_split": {
+  "train": {
+   "n": 12600,
+   "exact_match": 0.9604
+  },
+  "val": {
+   "n": 2700,
+   "exact_match": 0.9837
+  },
+  "test": {
+   "n": 2700,
+   "exact_match": 0.8544
+  }
+ },
+ "per_noise_type": {
+  "none": {
+   "n": 15270,
+   "exact_match": 0.9468,
+   "false_positive_rate": 0.0399
+  },
+  "chit_chat": {
+   "n": 1291,
+   "exact_match": 0.9582,
+   "detection_recall": 1.0
+  },
+  "retraction": {
+   "n": 914,
+   "exact_match": 0.942,
+   "detection_recall": 1.0
+  },
+  "repeated_turn": {
+   "n": 525,
+   "exact_match": 0.9695,
+   "detection_recall": 1.0
+  }
+ },
+ "overall": {
+  "n": 18000,
+  "exact_match": 0.948
+ },
+ "errors_sample": [
+  {
+   "session": "S00008",
+   "turns": "Adding coverage generation to tox || Adding coverage generation to tox",
+   "got": "Adding coverage generation to tox",
+   "want": "Adding coverage generation to tox. Adding coverage generation to tox"
+  },
+  {
+   "session": "S00008",
+   "turns": "Adding coverage generation to tox || Adding coverage generation to tox",
+   "got": "Adding coverage generation to tox",
+   "want": "Adding coverage generation to tox. Adding coverage generation to tox"
+  },
+  {
+   "session": "S00100",
+   "turns": "Fixed relative import. || For Python 3 support.",
+   "got": "Fixed relative import. For Python 3 support.",
+   "want": "Fixed relative import.. For Python 3 support."
+  },
+  {
+   "session": "S00109",
+   "turns": "Removes double call to afterRouteAdded when ignoreTrailingSlash === true || Removes double call to afterRouteAdded when ignoreTrailingSlash === true",
+   "got": "Removes double call to afterRouteAdded when ignoreTrailingSlash === true",
+   "want": "Removes double call to afterRouteAdded when ignoreTrailingSlash === true. Removes double call to aft"
+  },
+  {
+   "session": "S00109",
+   "turns": "Removes double call to afterRouteAdded when ignoreTrailingSlash === true || Removes double call to afterRouteAdded when ignoreTrailingSlash === true",
+   "got": "Removes double call to afterRouteAdded when ignoreTrailingSlash === true",
+   "want": "Removes double call to afterRouteAdded when ignoreTrailingSlash === true. Removes double call to aft"
+  }
+ ],
+ "n_errors": 936,
+ "note": "Rules were written from visible noise templates; results are in-distribution for Sift-IA v1."
+}
