@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sift triage</title>
+<style>
+body{font:15px system-ui,sans-serif;max-width:1000px;margin:24px auto;padding:0 16px;color:#1a1a1a}
+textarea{width:100%;font:13px ui-monospace,monospace;box-sizing:border-box}
+button{padding:8px 16px;font-size:15px;cursor:pointer}
+.hunk{border:1px solid #ccc;border-radius:6px;margin:12px 0;padding:10px}
+.bad{border-color:#c0392b}.ok{border-color:#2e8b57}
+.badge{display:inline-block;padding:1px 8px;border-radius:10px;color:#fff;font-size:12px}
+button.fb{padding:2px 10px;font-size:12px;margin-left:6px}.sel{background:#222;color:#fff}
+pre{background:#f6f6f6;padding:8px;overflow:auto;font-size:12px;margin:6px 0 0}
+.l{display:block}
+</style></head><body>
+<h1>Sift: hunk triage</h1>
+<p id="model"></p><p>Everything runs locally. Enter the intent turns (one per line) and a unified diff.</p>
+<label>Intent turns</label><textarea id="intent" rows="3"></textarea>
+<label>Unified diff</label><textarea id="diff" rows="12"></textarea>
+<p><label><input type="checkbox" id="explain"> highlight influential tokens (slower, torch backend only)</label></p>
+<button onclick="go()">Rank hunks</button> <span id="status"></span>
+<div id="out"></div>
+<h2>History</h2><div id="hist"></div>
+<script>
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function heat(v,m){if(!m)return'';const a=Math.min(1,Math.abs(v)/m);return v>0?`background:rgba(192,57,43,${a*.6})`:`background:rgba(46,139,87,${a*.4})`}
+async function go(){
+  const st=document.getElementById('status');st.textContent='scoring…';
+  const r=await fetch('/api/score',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({intent_turns:document.getElementById('intent').value.split('\n').filter(x=>x.trim()),
+    diff:document.getElementById('diff').value,explain:document.getElementById('explain').checked})});
+  const o=document.getElementById('out');
+  if(!r.ok){st.textContent='error '+r.status;o.textContent=await r.text();return}
+  const d=await r.json();st.textContent=d.n_hunks+' hunk(s), '+(d.latency_s*1000).toFixed(0)+' ms';
+  o.innerHTML='<p><b>Consolidated intent:</b> '+esc(d.intent)+'</p>'+d.hunks.map(h=>{
+    const bad=h.verdict==='misaligned';
+    let body;
+    if(h.hunk_lines){const m=Math.max(...h.hunk_lines.map(x=>Math.abs(x[1])),1e-9);
+      body=h.hunk_lines.map(x=>`<span class="l" style="${heat(x[1],m)}">${esc(x[0])||' '}</span>`).join('')}
+    else body=esc(h.text);
+    return `<div class="hunk ${bad?'bad':'ok'}"><b>#${h.rank}</b> ${esc(h.file)} <code>${esc(h.header)}</code>
+    <span class="badge" style="background:${bad?'#c0392b':'#2e8b57'}">${h.verdict}${h.drift_type?': '+h.drift_type:''}</span>
+    p(misaligned)=${h.p_misaligned.toFixed(3)} · confidence head=${h.confidence_head.toFixed(2)}
+    <span><button class="fb" onclick="fb(${d.analysis_id},${h.index},'accept',this)">agree</button><button class="fb" onclick="fb(${d.analysis_id},${h.index},'dismiss',this)">dismiss</button></span><pre>${body}</pre></div>`}).join('');
+}
+async function fb(a,i,action,el){
+  const r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({analysis_id:a,hunk_index:i,action})});
+  if(r.ok){[...el.parentNode.children].forEach(b=>b.classList.remove('sel'));el.classList.add('sel');hist()}else alert('feedback failed: '+await r.text())}
+async function hist(){
+  const r=await fetch('/api/history');if(!r.ok)return;const rows=await r.json();
+  document.getElementById('hist').innerHTML=rows.length?rows.map(x=>`<div>#${x.id} ${new Date(x.ts*1000).toLocaleString()} · ${x.n_hunks} hunk(s) · agree ${x.feedback.accept||0} / dismiss ${x.feedback.dismiss||0} · ${esc(x.intent.slice(0,80))}</div>`).join(''):'<i>no analyses yet</i>'}
+fetch('/api/model').then(async r=>{const m=document.getElementById('model');
+  if(r.ok){const j=await r.json();m.textContent=`Model: ${j.encoder} (${j.backend}), max_len ${j.max_len}, T=${j.temperature.toFixed(2)}, threshold ${j.threshold}`}
+  else m.textContent='Model unavailable: '+(await r.json()).detail});
+hist();
+</script></body></html>
