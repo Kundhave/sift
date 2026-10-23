@@ -1,0 +1,78 @@
+{
+ "fig_training_curves.png": [
+  "experiments/runs/*/results.json (history)"
+ ],
+ "fig_ndcg_vs_k.png": [
+  "results/eval_*.json (test.full.ndcg@K)",
+  "experiments/results/baselines.json"
+ ],
+ "fig_tier_auc.png": [
+  "results/master_comparison.csv"
+ ],
+ "fig_pr.png": [
+  "experiments/runs/*/preds.npz",
+  "experiments/results/baseline_scores.npz"
+ ],
+ "fig_roc_tiers.png": [
+  "experiments/runs/*/preds.npz",
+  "experiments/results/baseline_scores.npz",
+  "experiments/evaluate.py (subset_masks)"
+ ],
+ "fig_confusion.png": [
+  "results/eval_full.json (tn, fp, fn, tp)"
+ ],
+ "fig_reliability.png": [
+  "results/calibration.json"
+ ],
+ "fig_noise.png": [
+  "results/noise_robustness.json"
+ ],
+ "fig_cl_detection.png": [
+  "results/confident_learning.json"
+ ],
+ "fig_kmeans.png": [
+  "results/kmeans.json",
+  "experiments/results/pooled_embeddings.npz",
+  "artifacts/kmeans"
+ ],
+ "fig_latency_size.png": [
+  "results/latency_size.csv",
+  "results/latency_full.json",
+  "results/latency_size_onnx.json"
+ ],
+ "fig_gan_curves.png": [
+  "experiments/results/gan.json (history)"
+ ],
+ "fig_gan_vs_main.png": [
+  "results/gan_vs_main.json"
+ ],
+ "fig_xai_faithfulness.png": [
+  "results/xai.json (faithfulness)"
+ ],
+ "fig_xai_case.png": [
+  "results/xai_cases_ui.json",
+  "results/xai.json"
+ ],
+ "fig_ablation.png": [
+  "results/ablation.csv"
+ ],
+ "fig_testing_summary.png": [
+  "results/test_summary.json",
+  "results/coverage.json"
+ ],
+ "fig_redteam_mr.png": [
+  "experiments/results/testing_measurements.json"
+ ],
+ "fig_architecture.png": [
+  "structure drawn from src/sift and results/*.json (no numbers except those in results)"
+ ],
+ "ui_landing.png": [
+  "docs/screenshots/landing_desktop_light.png (cropped)"
+ ],
+ "ui_review.png": [
+  "reports/screenshots/review_explained_desktop_light.png (copy of a real UI capture, analysed sample with explanation)"
+ ],
+ "ui_results.png": [
+  "docs/screenshots/dev_results_desktop_light.png (cropped)"
+ ]
+}

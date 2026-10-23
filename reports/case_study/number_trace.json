@@ -1,0 +1,164 @@
+{
+ "Table:positioning": [
+  "Review 2 literature survey (five journal studies)",
+  "docs/RELATED_WORK.md"
+ ],
+ "Figure:arch": [
+  "structure of src/sift and app/",
+  "reports/figures_300/fig_architecture.png"
+ ],
+ "Table:dataset": [
+  "results/dataset_statistics.csv",
+  "experiments/results/DISCREPANCIES.md"
+ ],
+ "Table:noise_types": [
+  "results/dataset_statistics.csv"
+ ],
+ "Table:hyper": [
+  "experiments/runs/*/results.json",
+  "results/hyperparameters.csv"
+ ],
+ "Table:master": [
+  "results/master_comparison.csv",
+  "results/eval_*.json",
+  "experiments/results/baselines.json"
+ ],
+ "Figure:ndcg": [
+  "results/eval_*.json",
+  "reports/figures_300/fig_ndcg_vs_k.png"
+ ],
+ "Figure:tier": [
+  "results/master_comparison.csv",
+  "reports/figures_300/fig_tier_auc.png"
+ ],
+ "Figure:pr": [
+  "experiments/runs/*/preds.npz",
+  "experiments/results/baseline_scores.npz",
+  "reports/figures_300/fig_pr.png"
+ ],
+ "Figure:roc": [
+  "experiments/runs/*/preds.npz",
+  "experiments/results/baseline_scores.npz",
+  "reports/figures_300/fig_roc_tiers.png"
+ ],
+ "Figure:conf": [
+  "results/eval_full.json",
+  "reports/figures_300/fig_confusion.png"
+ ],
+ "Figure:train": [
+  "experiments/runs/*/results.json",
+  "reports/figures_300/fig_training_curves.png"
+ ],
+ "Table:subset": [
+  "results/eval_full.json",
+  "results/eval_minilm_ce.json",
+  "results/eval_student.json"
+ ],
+ "Table:ci": [
+  "reports/case_study/bootstrap_ci.json"
+ ],
+ "Table:drift": [
+  "reports/case_study/bootstrap_ci.json",
+  "experiments/runs/full/preds.npz"
+ ],
+ "Figure:rel": [
+  "results/calibration.json",
+  "reports/figures_300/fig_reliability.png"
+ ],
+ "Table:cl": [
+  "results/confident_learning.json"
+ ],
+ "Figure:cl": [
+  "results/confident_learning.json",
+  "reports/figures_300/fig_cl_detection.png"
+ ],
+ "Table:noise": [
+  "results/noise_robustness.json"
+ ],
+ "Figure:noise": [
+  "results/noise_robustness.json",
+  "reports/figures_300/fig_noise.png"
+ ],
+ "Table:km": [
+  "results/kmeans.json"
+ ],
+ "Figure:km": [
+  "results/kmeans.json",
+  "experiments/results/pooled_embeddings.npz",
+  "reports/figures_300/fig_kmeans.png"
+ ],
+ "Table:gan": [
+  "results/gan_vs_main.json",
+  "experiments/results/gan.json",
+  "results/latency_full.json"
+ ],
+ "Figure:ganc": [
+  "experiments/results/gan.json",
+  "reports/figures_300/fig_gan_curves.png"
+ ],
+ "Figure:ganv": [
+  "results/gan_vs_main.json",
+  "reports/figures_300/fig_gan_vs_main.png"
+ ],
+ "Table:xai": [
+  "results/xai.json"
+ ],
+ "Figure:faith": [
+  "results/xai.json",
+  "reports/figures_300/fig_xai_faithfulness.png"
+ ],
+ "Figure:xcase": [
+  "results/xai_cases_ui.json",
+  "results/xai.json",
+  "reports/figures_300/fig_xai_case.png"
+ ],
+ "Table:lat": [
+  "results/latency_size.csv",
+  "results/latency_full.json",
+  "results/latency_size_onnx.json"
+ ],
+ "Figure:lat": [
+  "results/latency_size.csv",
+  "reports/figures_300/fig_latency_size.png"
+ ],
+ "Figure:ui1": [
+  "docs/screenshots/landing_desktop_light.png",
+  "docs/screenshots/dev_results_desktop_light.png"
+ ],
+ "Figure:ui3": [
+  "reports/screenshots/review_explained_desktop_light.png"
+ ],
+ "Table:tests": [
+  "results/test_summary.json",
+  "results/coverage.json"
+ ],
+ "Figure:test": [
+  "results/test_summary.json",
+  "results/coverage.json",
+  "reports/figures_300/fig_testing_summary.png"
+ ],
+ "Table:mr": [
+  "experiments/results/testing_measurements.json"
+ ],
+ "Table:red": [
+  "experiments/results/testing_measurements.json"
+ ],
+ "Figure:red": [
+  "experiments/results/testing_measurements.json",
+  "reports/figures_300/fig_redteam_mr.png"
+ ],
+ "Table:defects": [
+  "results/test_summary.json"
+ ],
+ "Table:claims": [
+  "results/*.json (see the cited tables)"
+ ],
+ "Table:abl": [
+  "results/ablation.csv"
+ ],
+ "Figure:abl": [
+  "results/ablation.csv",
+  "reports/figures_300/fig_ablation.png"
+ ],
+ "Table:authors": []
+}

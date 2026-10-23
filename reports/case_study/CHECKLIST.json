@@ -1,0 +1,288 @@
+{
+ "figures_total": 21,
+ "figures_captioned_in_docx": 21,
+ "graphs_excluding_architecture_screenshots_and_worked_example": 17,
+ "tables_total": 21,
+ "tables_captioned_in_docx": 21,
+ "equations": 14,
+ "pages": 28,
+ "discussion_words": 5472,
+ "discussion_pages_estimated_including_claims_table": 6.45,
+ "discussion_start": [
+  19,
+  54.1,
+  667.89
+ ],
+ "ablation_start": [
+  25,
+  313.3,
+  602.04
+ ],
+ "abstract_words": 239,
+ "keywords": 6,
+ "required_headings_present_in_order": true,
+ "heading1_list": [
+  "1. Introduction",
+  "2. Related Work",
+  "3. Proposed Method",
+  "4. Results and Discussion",
+  "5. Ablation Study",
+  "6. Conclusion and Future Work",
+  "Data Availability and Code",
+  "References",
+  "Author Contributions",
+  "About the Authors"
+ ],
+ "heading2_list": [
+  "2.1 Message\u2013code and comment\u2013code inconsistency",
+  "2.2 Tangled changes and dataset validity",
+  "2.3 Cross-encoders and pre-trained encoders",
+  "2.4 Label noise and confident learning",
+  "2.5 Calibration, distillation, attribution and focal loss",
+  "2.6 Positioning",
+  "3.1 Problem formulation",
+  "3.2 Dataset description",
+  "3.3 Overall architecture",
+  "3.4 Model and loss",
+  "3.5 Noise component and denoising",
+  "3.6 K-means integration",
+  "3.7 GAN-style baseline",
+  "3.8 Explainability",
+  "3.9 Calibration, distillation and INT8 export",
+  "3.10 User interface and backend integration",
+  "3.11 Testing and test design methodology",
+  "4.1 Experimental setup",
+  "4.2 Evaluation datasets",
+  "4.3 Master comparison of all models",
+  "4.4 Results per evaluation subset",
+  "4.5 Statistical uncertainty",
+  "4.6 Drift-type head",
+  "4.7 Calibration",
+  "4.8 Noise and denoising",
+  "4.9 K-means analysis",
+  "4.10 GAN-style baseline",
+  "4.11 Explainability results",
+  "4.12 Compression, size and latency",
+  "4.13 Interface integration and deployment",
+  "4.14 Testing and test design results",
+  "4.15 Discussion"
+ ],
+ "front_matter_after_references": [
+  "References",
+  "Author Contributions",
+  "About the Authors"
+ ],
+ "author_contributions_table_present": true,
+ "figure_min_dpi_300_source_pngs": true,
+ "forbidden_words_found": [],
+ "deployment_url_included": null,
+ "in_text_citation_style": "author-date",
+ "references_count": 19,
+ "number_trace": {
+  "Table:positioning": [
+   "Review 2 literature survey (five journal studies)",
+   "docs/RELATED_WORK.md"
+  ],
+  "Figure:arch": [
+   "structure of src/sift and app/",
+   "reports/figures_300/fig_architecture.png"
+  ],
+  "Table:dataset": [
+   "results/dataset_statistics.csv",
+   "experiments/results/DISCREPANCIES.md"
+  ],
+  "Table:noise_types": [
+   "results/dataset_statistics.csv"
+  ],
+  "Table:hyper": [
+   "experiments/runs/*/results.json",
+   "results/hyperparameters.csv"
+  ],
+  "Table:master": [
+   "results/master_comparison.csv",
+   "results/eval_*.json",
+   "experiments/results/baselines.json"
+  ],
+  "Figure:ndcg": [
+   "results/eval_*.json",
+   "reports/figures_300/fig_ndcg_vs_k.png"
+  ],
+  "Figure:tier": [
+   "results/master_comparison.csv",
+   "reports/figures_300/fig_tier_auc.png"
+  ],
+  "Figure:pr": [
+   "experiments/runs/*/preds.npz",
+   "experiments/results/baseline_scores.npz",
+   "reports/figures_300/fig_pr.png"
+  ],
+  "Figure:roc": [
+   "experiments/runs/*/preds.npz",
+   "experiments/results/baseline_scores.npz",
+   "reports/figures_300/fig_roc_tiers.png"
+  ],
+  "Figure:conf": [
+   "results/eval_full.json",
+   "reports/figures_300/fig_confusion.png"
+  ],
+  "Figure:train": [
+   "experiments/runs/*/results.json",
+   "reports/figures_300/fig_training_curves.png"
+  ],
+  "Table:subset": [
+   "results/eval_full.json",
+   "results/eval_minilm_ce.json",
+   "results/eval_student.json"
+  ],
+  "Table:ci": [
+   "reports/case_study/bootstrap_ci.json"
+  ],
+  "Table:drift": [
+   "reports/case_study/bootstrap_ci.json",
+   "experiments/runs/full/preds.npz"
+  ],
+  "Figure:rel": [
+   "results/calibration.json",
+   "reports/figures_300/fig_reliability.png"
+  ],
+  "Table:cl": [
+   "results/confident_learning.json"
+  ],
+  "Figure:cl": [
+   "results/confident_learning.json",
+   "reports/figures_300/fig_cl_detection.png"
+  ],
+  "Table:noise": [
+   "results/noise_robustness.json"
+  ],
+  "Figure:noise": [
+   "results/noise_robustness.json",
+   "reports/figures_300/fig_noise.png"
+  ],
+  "Table:km": [
+   "results/kmeans.json"
+  ],
+  "Figure:km": [
+   "results/kmeans.json",
+   "experiments/results/pooled_embeddings.npz",
+   "reports/figures_300/fig_kmeans.png"
+  ],
+  "Table:gan": [
+   "results/gan_vs_main.json",
+   "experiments/results/gan.json",
+   "results/latency_full.json"
+  ],
+  "Figure:ganc": [
+   "experiments/results/gan.json",
+   "reports/figures_300/fig_gan_curves.png"
+  ],
+  "Figure:ganv": [
+   "results/gan_vs_main.json",
+   "reports/figures_300/fig_gan_vs_main.png"
+  ],
+  "Table:xai": [
+   "results/xai.json"
+  ],
+  "Figure:faith": [
+   "results/xai.json",
+   "reports/figures_300/fig_xai_faithfulness.png"
+  ],
+  "Figure:xcase": [
+   "results/xai_cases_ui.json",
+   "results/xai.json",
+   "reports/figures_300/fig_xai_case.png"
+  ],
+  "Table:lat": [
+   "results/latency_size.csv",
+   "results/latency_full.json",
+   "results/latency_size_onnx.json"
+  ],
+  "Figure:lat": [
+   "results/latency_size.csv",
+   "reports/figures_300/fig_latency_size.png"
+  ],
+  "Figure:ui1": [
+   "docs/screenshots/landing_desktop_light.png",
+   "docs/screenshots/dev_results_desktop_light.png"
+  ],
+  "Figure:ui3": [
+   "reports/screenshots/review_explained_desktop_light.png"
+  ],
+  "Table:tests": [
+   "results/test_summary.json",
+   "results/coverage.json"
+  ],
+  "Figure:test": [
+   "results/test_summary.json",
+   "results/coverage.json",
+   "reports/figures_300/fig_testing_summary.png"
+  ],
+  "Table:mr": [
+   "experiments/results/testing_measurements.json"
+  ],
+  "Table:red": [
+   "experiments/results/testing_measurements.json"
+  ],
+  "Figure:red": [
+   "experiments/results/testing_measurements.json",
+   "reports/figures_300/fig_redteam_mr.png"
+  ],
+  "Table:defects": [
+   "results/test_summary.json"
+  ],
+  "Table:claims": [
+   "results/*.json (see the cited tables)"
+  ],
+  "Table:abl": [
+   "results/ablation.csv"
+  ],
+  "Figure:abl": [
+   "results/ablation.csv",
+   "reports/figures_300/fig_ablation.png"
+  ],
+  "Table:authors": []
+ },
+ "prose_number_sources": {
+  "abstract, 1, 4.4-4.6, 5": [
+   "results/master_comparison.csv",
+   "results/ablation.csv",
+   "results/eval_full.json",
+   "experiments/results/baselines.json",
+   "results/calibration.json",
+   "results/confident_learning.json",
+   "results/test_summary.json"
+  ],
+  "3.2, 4.3": [
+   "results/dataset_statistics.csv",
+   "experiments/results/DISCREPANCIES.md",
+   "experiments/results/data_verification.json"
+  ],
+  "4.1, 4.2": [
+   "experiments/runs/full/results.json",
+   "results/hpo_small.json",
+   "results/latency_full.json"
+  ],
+  "4.5 statistical uncertainty, 4.6 drift head": [
+   "reports/case_study/bootstrap_ci.json (computed by reports/case_study/bootstrap_ci.py from stored predictions)"
+  ],
+  "4.7-4.13": [
+   "results/calibration.json",
+   "results/confident_learning.json",
+   "results/noise_robustness.json",
+   "results/kmeans.json",
+   "results/gan_vs_main.json",
+   "experiments/results/gan.json",
+   "results/xai.json",
+   "results/latency_size.csv",
+   "results/latency_size_onnx.json"
+  ],
+  "4.14 testing": [
+   "results/test_summary.json",
+   "results/coverage.json",
+   "experiments/results/testing_measurements.json"
+  ],
+  "4.15 discussion": [
+   "all of the above"
+  ]
+ }
+}

@@ -1,0 +1,1120 @@
+[
+ {
+  "slide": 0,
+  "label": "AUC random/hard B3 Hunk size",
+  "value": [
+   "0.4794",
+   "0.4928"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard B4 TF-IDF dissimilarity",
+  "value": [
+   "0.8122",
+   "0.5514"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard B5 Logistic regression",
+  "value": [
+   "0.7768",
+   "0.5506"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard Siamese BiLSTM",
+  "value": [
+   "0.6409",
+   "0.5265"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard MiniLM-L6 cross-encoder",
+  "value": [
+   "0.7405",
+   "0.6356"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard CodeBERT cross-encoder",
+  "value": [
+   "0.5486",
+   "0.6003"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard Main: ModernBERT-base",
+  "value": [
+   "0.7998",
+   "0.7255"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard Frozen-embedding frozen cosine dissimilarity",
+  "value": [
+   "0.8138",
+   "0.7191"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard GAN-style baseline: gan unsupervised",
+  "value": [
+   "0.7842",
+   "0.7079"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "AUC random/hard Distilled MiniLM student (fp32)",
+  "value": [
+   "0.7941",
+   "0.6782"
+  ],
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 0,
+  "label": "noise no_denoise macro-F1 @ 0.0",
+  "value": 0.5365912819115322,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "noise no_denoise macro-F1 @ 0.1",
+  "value": 0.5857705444297205,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "noise no_denoise macro-F1 @ 0.2",
+  "value": 0.5197974959983125,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "noise no_denoise macro-F1 @ 0.3",
+  "value": 0.5111145061492629,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "noise denoise macro-F1 @ 0.0",
+  "value": 0.5298295125957112,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "noise denoise macro-F1 @ 0.1",
+  "value": 0.5916130081496696,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "noise denoise macro-F1 @ 0.2",
+  "value": 0.6071353078544457,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "noise denoise macro-F1 @ 0.3",
+  "value": 0.53907426677133,
+  "source": "results/noise_robustness.json"
+ },
+ {
+  "slide": 0,
+  "label": "GAN compare full ModernBERT",
+  "value": {
+   "macro_f1": 0.6801734696983281,
+   "ndcg@5": 0.8682590720079042,
+   "auc_random": 0.799835255354201,
+   "auc_hard": 0.7255216693418941
+  },
+  "source": "results/gan_vs_main.json"
+ },
+ {
+  "slide": 0,
+  "label": "GAN compare frozen cosine dissimilarity",
+  "value": {
+   "macro_f1": 0.6143345081602578,
+   "ndcg@5": 0.8735368264145923,
+   "auc_random": 0.8138385502471169,
+   "auc_hard": 0.7191011235955056
+  },
+  "source": "results/gan_vs_main.json"
+ },
+ {
+  "slide": 0,
+  "label": "GAN compare gan unsupervised",
+  "value": {
+   "macro_f1": 0.6304347826086957,
+   "ndcg@5": 0.8635436402517368,
+   "auc_random": 0.7841845140032949,
+   "auc_hard": 0.7078651685393258
+  },
+  "source": "results/gan_vs_main.json"
+ },
+ {
+  "slide": 0,
+  "label": "GAN compare gan hybrid with misaligned negatives",
+  "value": {
+   "macro_f1": 0.6245120364346128,
+   "ndcg@5": 0.8710860837842785,
+   "auc_random": 0.8072487644151565,
+   "auc_hard": 0.7046548956661316
+  },
+  "source": "results/gan_vs_main.json"
+ },
+ {
+  "slide": 0,
+  "label": "GAN generator cosine epoch 1 / last",
+  "value": [
+   0.9799668192863464,
+   0.2905047833919525
+  ],
+  "source": "experiments/results/gan.json"
+ },
+ {
+  "slide": 0,
+  "label": "calibration",
+  "value": {
+   "temperature": 1.2745488256372846,
+   "ece_test_before": 0.06381705449262436,
+   "ece_test_after": 0.02795720205198791
+  },
+  "source": "results/calibration.json"
+ },
+ {
+  "slide": 2,
+  "label": "B4 hard AUC",
+  "value": "0.5514",
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 2,
+  "label": "Main hard AUC",
+  "value": "0.7255",
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 2,
+  "label": "Main NDCG@5",
+  "value": "0.8683",
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 2,
+  "label": "B1 NDCG@5",
+  "value": "0.7236",
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 2,
+  "label": "INT8 size MB",
+  "value": 22.893203,
+  "source": "results/latency_size_onnx.json"
+ },
+ {
+  "slide": 2,
+  "label": "INT8 p95 ms",
+  "value": 66.93750434938005,
+  "source": "results/latency_size_onnx.json"
+ },
+ {
+  "slide": 2,
+  "label": "hunks",
+  "value": 18000,
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 3,
+  "label": "B2 NDCG@5",
+  "value": 0.723567281952334,
+  "source": "experiments/results/baselines.json"
+ },
+ {
+  "slide": 3,
+  "label": "drift counts",
+  "value": [
+   1782,
+   1307,
+   871
+  ],
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 cl20",
+  "value": 91.1,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 bl20",
+  "value": 78.4,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 ct20",
+  "value": 81.2,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 in20",
+  "value": 87.8,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 cl40",
+  "value": 86.7,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 bl40",
+  "value": 60.2,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 ct40",
+  "value": 62.9,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 5,
+  "label": "paper Table 2 in40",
+  "value": 84.4,
+  "source": "ppt/standard_paper.pdf Table 2 (sparsity 0)"
+ },
+ {
+  "slide": 6,
+  "label": "CL flagged/tp",
+  "value": [
+   1470,
+   220
+  ],
+  "source": "results/confident_learning.json"
+ },
+ {
+  "slide": 6,
+  "label": "CL precision/recall",
+  "value": [
+   0.14965986394557823,
+   0.3866432337434095
+  ],
+  "source": "results/confident_learning.json"
+ },
+ {
+  "slide": 6,
+  "label": "final drop list",
+  "value": [
+   1586,
+   0.13808322824716268,
+   0.38488576449912126
+  ],
+  "source": "results/confident_learning.json"
+ },
+ {
+  "slide": 6,
+  "label": "random precision",
+  "value": 0.04515873015873016,
+  "source": "results/confident_learning.json"
+ },
+ {
+  "slide": 6,
+  "label": "rules removed",
+  "value": {
+   "removed": 886,
+   "non_semantic": 384,
+   "duplicates_after_first": 610,
+   "removed_that_are_label_flips": 39
+  },
+  "source": "results/confident_learning.json"
+ },
+ {
+  "slide": 8,
+  "label": "temperature",
+  "value": 1.2745488256372846,
+  "source": "results/calibration.json"
+ },
+ {
+  "slide": 8,
+  "label": "best val macro-F1",
+  "value": 0.7161,
+  "source": "results/hyperparameters.csv (run full)"
+ },
+ {
+  "slide": 8,
+  "label": "full run train seconds / gpu mem",
+  "value": [
+   "1691.9057",
+   "3.1096"
+  ],
+  "source": "results/hyperparameters.csv"
+ },
+ {
+  "slide": 9,
+  "label": "params",
+  "value": 149018117,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config max_len",
+  "value": 512,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config micro_bs",
+  "value": 8,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config accum",
+  "value": 2,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config lr",
+  "value": 2e-05,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config epochs",
+  "value": 6,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config patience",
+  "value": 2,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config n_train_used",
+  "value": 10128,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config n_train_raw",
+  "value": 12600,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 9,
+  "label": "config seed",
+  "value": 473,
+  "source": "experiments/runs/full/config.json"
+ },
+ {
+  "slide": 10,
+  "label": "split train",
+  "value": [
+   7,
+   "4266",
+   "12600",
+   9828,
+   2772
+  ],
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 10,
+  "label": "split val",
+  "value": [
+   5,
+   "921",
+   "2700",
+   2106,
+   594
+  ],
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 10,
+  "label": "split test",
+  "value": [
+   3,
+   "924",
+   "2700",
+   2106,
+   594
+  ],
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 10,
+  "label": "rows with noise",
+  "value": "4529",
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 12,
+  "label": "noise intent_turn",
+  "value": "2730",
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 12,
+  "label": "noise duplicate_hunk",
+  "value": "937",
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 12,
+  "label": "noise non_semantic_hunk",
+  "value": "714",
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 12,
+  "label": "noise label_flip",
+  "value": "569",
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 12,
+  "label": "noise truncation",
+  "value": "198",
+  "source": "results/dataset_statistics.csv"
+ },
+ {
+  "slide": 12,
+  "label": "kmeans",
+  "value": {
+   "k": 4,
+   "silhouette": 0.11865895241498947,
+   "purity_test": 0.8003703703703704,
+   "majority": 0.78,
+   "nmi_align": 0.10156880273718452,
+   "nmi_drift": 0.1065400190726818,
+   "delta": {
+    "macro_f1": 0.010478407113983401,
+    "ndcg@5": 0.005315426762988351,
+    "ece": 0.0029135979386326998,
+    "auc_random": 0.021416803953871466,
+    "auc_hard": 0.0008025682182984939
+   }
+  },
+  "source": "results/kmeans.json"
+ },
+ {
+  "slide": 14,
+  "label": "faithfulness k=5",
+  "value": {
+   "mean_p_orig": 0.5785641992092132,
+   "mean_p_after_top_k_masked": 0.3862193020433187,
+   "mean_p_after_random_k_masked": 0.48161363445222377,
+   "verdict_flip_rate_top": 0.46,
+   "verdict_flip_rate_random": 0.27
+  },
+  "source": "results/xai.json"
+ },
+ {
+  "slide": 14,
+  "label": "faithfulness k=10",
+  "value": {
+   "mean_p_after_top_k_masked": 0.28325570121407506,
+   "mean_p_after_random_k_masked": 0.40593671407550574
+  },
+  "source": "results/xai.json"
+ },
+ {
+  "slide": 14,
+  "label": "worked example p",
+  "value": [
+   "SIFT-017393",
+   "attrs",
+   0.9570744037628174,
+   "misaligned",
+   "collateral"
+  ],
+  "source": "results/xai.json cases.collateral"
+ },
+ {
+  "slide": 15,
+  "label": "master row B1 Random order",
+  "value": {
+   "macro_f1": "",
+   "ndcg@5": "0.7236",
+   "auc_random": "",
+   "auc_hard": "",
+   "ece": ""
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row B2 Diff lines changed",
+  "value": {
+   "macro_f1": "",
+   "ndcg@5": "0.7236",
+   "auc_random": "",
+   "auc_hard": "",
+   "ece": ""
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row B3 Hunk size",
+  "value": {
+   "macro_f1": "",
+   "ndcg@5": "0.7206",
+   "auc_random": "0.4794",
+   "auc_hard": "0.4928",
+   "ece": ""
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row B4 TF-IDF dissimilarity",
+  "value": {
+   "macro_f1": "",
+   "ndcg@5": "0.8295",
+   "auc_random": "0.8122",
+   "auc_hard": "0.5514",
+   "ece": ""
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row B5 Logistic regression",
+  "value": {
+   "macro_f1": "0.698",
+   "ndcg@5": "0.8159",
+   "auc_random": "0.7768",
+   "auc_hard": "0.5506",
+   "ece": ""
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row Siamese BiLSTM",
+  "value": {
+   "macro_f1": "0.5623",
+   "ndcg@5": "0.7829",
+   "auc_random": "0.6409",
+   "auc_hard": "0.5265",
+   "ece": "0.2338"
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row MiniLM-L6 cross-encoder",
+  "value": {
+   "macro_f1": "0.6161",
+   "ndcg@5": "0.8347",
+   "auc_random": "0.7405",
+   "auc_hard": "0.6356",
+   "ece": "0.0588"
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row CodeBERT cross-encoder",
+  "value": {
+   "macro_f1": "0.4597",
+   "ndcg@5": "0.7788",
+   "auc_random": "0.5486",
+   "auc_hard": "0.6003",
+   "ece": "0.1032"
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row Main: ModernBERT-base",
+  "value": {
+   "macro_f1": "0.6802",
+   "ndcg@5": "0.8683",
+   "auc_random": "0.7998",
+   "auc_hard": "0.7255",
+   "ece": "0.0661"
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row Frozen-embedding frozen cosine dissimilarity",
+  "value": {
+   "macro_f1": "0.6143",
+   "ndcg@5": "0.8735",
+   "auc_random": "0.8138",
+   "auc_hard": "0.7191",
+   "ece": ""
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row GAN-style baseline: gan unsupervised",
+  "value": {
+   "macro_f1": "0.6304",
+   "ndcg@5": "0.8635",
+   "auc_random": "0.7842",
+   "auc_hard": "0.7079",
+   "ece": ""
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row Distilled MiniLM student (fp32)",
+  "value": {
+   "macro_f1": "0.6669",
+   "ndcg@5": "0.8689",
+   "auc_random": "0.7941",
+   "auc_hard": "0.6782",
+   "ece": "0.1071"
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 15,
+  "label": "master row Student ONNX INT8 (deployed target)",
+  "value": {
+   "macro_f1": "0.667",
+   "ndcg@5": "0.8685",
+   "auc_random": "",
+   "auc_hard": "",
+   "ece": "0.0505"
+  },
+  "source": "results/master_comparison.csv"
+ },
+ {
+  "slide": 17,
+  "label": "rankable sessions",
+  "value": 456,
+  "source": "experiments/results/baselines.json"
+ },
+ {
+  "slide": 17,
+  "label": "main test confusion + curves",
+  "value": {
+   "tn": 1841,
+   "fp": 265,
+   "fn": 311,
+   "tp": 283,
+   "pr_auc": 0.514553582661712,
+   "roc_auc": 0.7771274792879731,
+   "precision": 0.5164233576642335,
+   "recall": 0.4764309764309764,
+   "specificity": 0.8741690408357075
+  },
+  "source": "results/eval_full.json"
+ },
+ {
+  "slide": 20,
+  "label": "latency rows",
+  "value": {
+   "main": [
+    596.122289,
+    94.50249450037518,
+    95.08204584972191
+   ],
+   "fp32": [
+    90.400497,
+    13.418787500086182,
+    68.70076719965255
+   ],
+   "int8": [
+    22.893203,
+    8.542819500235055,
+    66.93750434938005
+   ]
+  },
+  "source": "results/latency_full.json; results/latency_size_onnx.json"
+ },
+ {
+  "slide": 20,
+  "label": "ablation Full model",
+  "value": {
+   "macro_f1": "0.6802",
+   "ndcg@5": "0.8683",
+   "auc_hard": "0.7255"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation Hunk only",
+  "value": {
+   "macro_f1": "0.4623",
+   "ndcg@5": "0.78",
+   "auc_hard": "0.5923"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation Intent only",
+  "value": {
+   "macro_f1": "0.5475",
+   "ndcg@5": "0.7256",
+   "auc_hard": "0.5008"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation No consolidation",
+  "value": {
+   "macro_f1": "0.6887",
+   "ndcg@5": "0.8909",
+   "auc_hard": "0.7376"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation No focal loss (CE)",
+  "value": {
+   "macro_f1": "0.696",
+   "ndcg@5": "0.8871",
+   "auc_hard": "0.7119"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation Alignment head only",
+  "value": {
+   "macro_f1": "0.706",
+   "ndcg@5": "0.8953",
+   "auc_hard": "0.752"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation No denoising",
+  "value": {
+   "macro_f1": "0.6877",
+   "ndcg@5": "0.9022",
+   "auc_hard": "0.7673"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation k-means off",
+  "value": {
+   "macro_f1": "0.6804",
+   "ndcg@5": "0.8682",
+   "auc_hard": "0.7199"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation k-means on",
+  "value": {
+   "macro_f1": "0.6908",
+   "ndcg@5": "0.8735",
+   "auc_hard": "0.7207"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation Student fp32",
+  "value": {
+   "macro_f1": "0.6669",
+   "ndcg@5": "0.8689",
+   "auc_hard": "0.6782"
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 20,
+  "label": "ablation Student INT8",
+  "value": {
+   "macro_f1": "0.667",
+   "ndcg@5": "0.8685",
+   "auc_hard": ""
+  },
+  "source": "results/ablation.csv"
+ },
+ {
+  "slide": 21,
+  "label": "tests smoke",
+  "value": [
+   6,
+   0,
+   0,
+   6
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests white-box",
+  "value": [
+   51,
+   0,
+   0,
+   51
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests black-box",
+  "value": [
+   31,
+   2,
+   0,
+   33
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests api",
+  "value": [
+   43,
+   0,
+   0,
+   43
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests data-pipeline",
+  "value": [
+   17,
+   2,
+   0,
+   19
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests metamorphic",
+  "value": [
+   8,
+   0,
+   0,
+   8
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests adversarial",
+  "value": [
+   17,
+   2,
+   0,
+   19
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests back-to-back",
+  "value": [
+   4,
+   0,
+   0,
+   4
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "tests e2e",
+  "value": [
+   37,
+   0,
+   0,
+   37
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "test totals",
+  "value": {
+   "total": 220,
+   "passed": 214,
+   "xfailed": 6,
+   "failed": 0,
+   "skipped": 0
+  },
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 21,
+  "label": "coverage",
+  "value": {
+   "percent_covered": 73.4,
+   "covered_lines": 836,
+   "num_statements": 1137,
+   "scope": "src/sift + app/backend (unit/API tests; e2e not measured)"
+  },
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 22,
+  "label": "metamorphic",
+  "value": {
+   "mr_determinism": {
+    "n": 120,
+    "max_abs_dp": 0.0
+   },
+   "mr_batch_independence": {
+    "n": 40,
+    "max_abs_dp": 1.4007091522216797e-06,
+    "mean_abs_dp": 3.868713918109279e-07
+   },
+   "mr_reorder": {
+    "sessions": 25,
+    "max_abs_dp": 2.086162567138672e-06
+   },
+   "mr_context_comment": {
+    "n": 120,
+    "flip_rate": 0.03333333333333333,
+    "mean_abs_dp": 0.02029927261173725,
+    "max_abs_dp": 0.13169246912002563,
+    "tolerance_flip_rate": 0.1
+   },
+   "mr_context_whitespace": {
+    "n": 120,
+    "flip_rate": 0.041666666666666664,
+    "mean_abs_dp": 0.02002660371363163,
+    "max_abs_dp": 0.13432765007019043,
+    "tolerance_flip_rate": 0.1
+   },
+   "mr_identifier_rename": {
+    "n": 115,
+    "flip_rate": 0.05217391304347826,
+    "mean_abs_dp": 0.03338336944580078,
+    "max_abs_dp": 0.4756370782852173,
+    "tolerance_flip_rate": 0.1
+   },
+   "mr_chitchat_removal": {
+    "n": 60,
+    "flip_rate": 0.016666666666666666,
+    "mean_abs_dp": 0.017488110810518265,
+    "max_abs_dp": 0.3478928804397583,
+    "tolerance_flip_rate": 0.05
+   },
+   "mr_intent_swap_sensitivity": {
+    "n": 60,
+    "mean_p_original": 0.19055043160915375,
+    "mean_p_swapped": 0.40964290499687195
+   }
+  },
+  "source": "experiments/results/testing_measurements.json"
+ },
+ {
+  "slide": 22,
+  "label": "red-team",
+  "value": {
+   "attack_misleading_comment_intent_copy": {
+    "attempts": 25,
+    "success_rate": 0.68,
+    "goal": "detected-misaligned hunk flips to aligned"
+   },
+   "attack_context_comment_claims_alignment": {
+    "attempts": 25,
+    "success_rate": 0.52,
+    "goal": "detected-misaligned hunk flips to aligned"
+   },
+   "attack_prompt_injection_string": {
+    "attempts": 25,
+    "success_rate": 0.04,
+    "goal": "detected-misaligned hunk flips to aligned"
+   },
+   "attack_false_alarm_irrelevant_comment": {
+    "attempts": 50,
+    "success_rate": 0.02,
+    "goal": "aligned hunk flips to misaligned"
+   },
+   "robust_very_long_hunk": {
+    "lines_added": 50000,
+    "p": 0.3216654360294342,
+    "survived": true
+   }
+  },
+  "source": "experiments/results/testing_measurements.json"
+ },
+ {
+  "slide": 22,
+  "label": "defect register",
+  "value": [
+   [
+    "D-DATA-1",
+    "Low"
+   ],
+   [
+    "D-DATA-2",
+    "Medium"
+   ],
+   [
+    "D1",
+    "Medium"
+   ],
+   [
+    "D2",
+    "Low"
+   ],
+   [
+    "D3",
+    "High"
+   ],
+   [
+    "D4",
+    "Medium"
+   ]
+  ],
+  "source": "results/test_summary.json"
+ },
+ {
+  "slide": 23,
+  "label": "consolidation agreement",
+  "value": 0.974,
+  "source": "experiments/results/testing_measurements.json"
+ },
+ {
+  "slide": 26,
+  "label": "deploy url present",
+  "value": false,
+  "source": "deploy/DEPLOY_URL.txt (checked at build time)"
+ }
+]
