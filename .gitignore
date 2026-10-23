@@ -1,6 +1,8 @@
 __pycache__/
 *.pyc
-data/
+data/*
+!data/dataset_statistics.json
+!data/lite_samples.json
 *.pt
 *.ckpt
 *.safetensors

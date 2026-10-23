@@ -1,0 +1,24 @@
+# Render Blueprint: New -> Blueprint -> pick the repo. Free plan, built from the Dockerfile at the repo root.
+services:
+  - type: web
+    name: sift
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: SIFT_MODELS
+        value: student_int8,b4,b5
+      - key: SIFT_LISTED_UNAVAILABLE
+        value: full,student,student_onnx_fp32
+      - key: SIFT_LOW_MEM
+        value: "1"
+      - key: SIFT_MAX_HUNKS
+        value: "20"
+      - key: MALLOC_ARENA_MAX
+        value: "2"
+      - key: CUDA_VISIBLE_DEVICES
+        value: ""
+      - key: OMP_NUM_THREADS
+        value: "1"

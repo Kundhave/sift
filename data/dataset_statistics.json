@@ -1,0 +1,122 @@
+{
+  "train": {
+    "hunks": 12600,
+    "sessions": 4266,
+    "aligned_clean": 9828,
+    "misaligned_clean": 2772,
+    "drift": {
+      "collateral": 1248,
+      "purpose_drift": 609,
+      "scope_expansion": 915
+    },
+    "difficulty": {
+      "random": 1310,
+      "hard": 1462
+    },
+    "label_flips": 569,
+    "languages": {
+      "Python": 7701,
+      "JavaScript": 4899
+    },
+    "repos": [
+      "black",
+      "click",
+      "express",
+      "fastify",
+      "flask",
+      "requests",
+      "rich"
+    ]
+  },
+  "val": {
+    "hunks": 2700,
+    "sessions": 921,
+    "aligned_clean": 2106,
+    "misaligned_clean": 594,
+    "drift": {
+      "purpose_drift": 131,
+      "collateral": 267,
+      "scope_expansion": 196
+    },
+    "difficulty": {
+      "random": 317,
+      "hard": 277
+    },
+    "label_flips": 0,
+    "languages": {
+      "Python": 818,
+      "JavaScript": 813,
+      "TypeScript": 1069
+    },
+    "repos": [
+      "chalk",
+      "got",
+      "koa",
+      "sqlmodel",
+      "typer"
+    ]
+  },
+  "test": {
+    "hunks": 2700,
+    "sessions": 924,
+    "aligned_clean": 2106,
+    "misaligned_clean": 594,
+    "drift": {
+      "collateral": 267,
+      "purpose_drift": 131,
+      "scope_expansion": 196
+    },
+    "difficulty": {
+      "hard": 261,
+      "random": 333
+    },
+    "label_flips": 0,
+    "languages": {
+      "JavaScript": 1014,
+      "Python": 1686
+    },
+    "repos": [
+      "attrs",
+      "axios",
+      "httpx"
+    ]
+  },
+  "noise_rows": {
+    "intent_turn": 2730,
+    "truncation": 198,
+    "non_semantic_hunk": 714,
+    "label_flip": 569,
+    "duplicate_hunk": 937
+  },
+  "rows_with_any_noise": 4529,
+  "non_semantic_reasons": {
+    "version_bump_only": 143,
+    "whitespace_only": 343,
+    "lockfile": 202,
+    "generated_or_minified": 26
+  },
+  "intent_noise_sessions": {
+    "none": 5198,
+    "chit_chat": 425,
+    "retraction": 308,
+    "repeated_turn": 180
+  },
+  "label_flip_directions": {
+    "aligned->misaligned": 285,
+    "misaligned->aligned": 284
+  },
+  "approx_tokens": {
+    "median": 132.0,
+    "p95": 455,
+    "max": 4031
+  },
+  "hunks_per_session": {
+    "median": 2,
+    "max": 14
+  },
+  "commit_date_range": [
+    "2009-06-26",
+    "2026-09-19"
+  ],
+  "distinct_source_commits": 8016
+}

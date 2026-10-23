@@ -8,6 +8,7 @@ experiments/results/*.npz
 artifacts/student_onnx_fp32/
 data/*
 !data/dataset_statistics.json
+!data/lite_samples.json
 !data/sift_ia_v1_train.csv
 !data/sift_ia_v1_val.csv
 !data/sift_ia_v1_test.csv

@@ -1,0 +1,12 @@
+# Lite runtime (Render free, 512 MB): no torch / transformers / pandas. Pins equal requirements.txt.
+fastapi==0.143.2
+starlette==1.8.0
+pydantic==2.14.1
+pydantic_core==2.50.1
+uvicorn==0.54.0
+numpy==2.5.4
+onnxruntime==1.31.0
+tokenizers==0.23.3
+scikit-learn==1.9.1
+scipy==1.18.1
+joblib==1.6.0
