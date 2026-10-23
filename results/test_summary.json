@@ -1,0 +1,177 @@
+{
+  "generated": "2026-10-16T16:15:32",
+  "machine": "x86_64",
+  "device": "cpu",
+  "totals": {
+    "total": 220,
+    "passed": 214,
+    "xfailed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "categories": {
+    "adversarial": {
+      "passed": 17,
+      "xfailed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "total": 19,
+      "files": [
+        "test_redteam.py"
+      ],
+      "framework_section": "Testing Methods"
+    },
+    "api": {
+      "passed": 43,
+      "xfailed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 43,
+      "files": [
+        "test_api.py",
+        "test_api_partitions.py"
+      ],
+      "framework_section": "Testing Methods"
+    },
+    "back-to-back": {
+      "passed": 4,
+      "xfailed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 4,
+      "files": [
+        "test_backtoback.py"
+      ],
+      "framework_section": "AI Models"
+    },
+    "black-box": {
+      "passed": 31,
+      "xfailed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "total": 33,
+      "files": [
+        "test_blackbox.py"
+      ],
+      "framework_section": "Testing Methods"
+    },
+    "data-pipeline": {
+      "passed": 17,
+      "xfailed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "total": 19,
+      "files": [
+        "test_data_pipeline.py"
+      ],
+      "framework_section": "Data"
+    },
+    "e2e": {
+      "passed": 37,
+      "xfailed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 37,
+      "files": [
+        "test_ui_e2e.py"
+      ],
+      "framework_section": "Context"
+    },
+    "metamorphic": {
+      "passed": 8,
+      "xfailed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 8,
+      "files": [
+        "test_metamorphic.py"
+      ],
+      "framework_section": "Testing Methods"
+    },
+    "smoke": {
+      "passed": 6,
+      "xfailed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 6,
+      "files": [
+        "test_smoke.py"
+      ],
+      "framework_section": "Performance / readiness"
+    },
+    "white-box": {
+      "passed": 51,
+      "xfailed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 51,
+      "files": [
+        "test_diffparse_consolidate.py",
+        "test_whitebox.py"
+      ],
+      "framework_section": "AI Models"
+    }
+  },
+  "coverage": {
+    "percent_covered": 73.4,
+    "covered_lines": 836,
+    "num_statements": 1137,
+    "scope": "src/sift + app/backend (unit/API tests; e2e not measured)"
+  },
+  "defects": [
+    {
+      "id": "D-DATA-1",
+      "description": "documented counts are 11,900/5,076/1,024 hunks per language; released data differs",
+      "severity": "Low",
+      "how_found": "Data pipeline test vs documented per-language hunk counts",
+      "mitigation": "Open: documentation discrepancy; reports must quote the released counts, not the documented ones.",
+      "test": "test_data_pipeline.py::test_documented_language_counts_match_release",
+      "status": "open (xfail strict)"
+    },
+    {
+      "id": "D-DATA-2",
+      "description": "test split has no TypeScript although val does; TS generalisation is untested",
+      "severity": "Medium",
+      "how_found": "Data pipeline test of language coverage per split",
+      "mitigation": "Open: test split has no TypeScript, so TS generalisation is unmeasured; stated as a limitation.",
+      "test": "test_data_pipeline.py::test_test_split_covers_typescript",
+      "status": "open (xfail strict)"
+    },
+    {
+      "id": "D1",
+      "description": "plain `diff -u` multi-file output (no `diff --git` lines) merges the second file's header into the previous hunk",
+      "severity": "Medium",
+      "how_found": "Black-box test on plain `diff -u` multi-file input (no `diff --git` lines)",
+      "mitigation": "Open: only git-style diffs split files correctly. Mitigation: UI/docs state git unified diff is required.",
+      "test": "test_blackbox.py::test_plain_unified_multifile_diff_splits_files",
+      "status": "open (xfail strict)"
+    },
+    {
+      "id": "D2",
+      "description": "chit-chat filter is exact-match on 8 template phrases; paraphrased pleasantries are kept in the intent",
+      "severity": "Low",
+      "how_found": "Black-box error guessing on paraphrased pleasantries in intent turns",
+      "mitigation": "Open: consolidation is rule-based (8 templates). Mitigation: model still reads the remaining intent; learned filter is future work.",
+      "test": "test_blackbox.py::test_paraphrased_chitchat_dropped",
+      "status": "open (xfail strict)"
+    },
+    {
+      "id": "D3",
+      "description": "comment line copying the intent text added to a misaligned hunk flips 68% (17/25) of detected hunks to 'aligned'; threshold 20%",
+      "severity": "High",
+      "how_found": "Red-team: comment line copying the intent text added to a misaligned hunk",
+      "mitigation": "Open. Model partly keys on lexical overlap with the intent. Mitigation: strip comment-only added lines before scoring (not implemented) or adversarial training.",
+      "test": "test_redteam.py::test_attack_misleading_comment_copying_intent",
+      "status": "open (xfail strict)"
+    },
+    {
+      "id": "D4",
+      "description": "context comment 'this change implements: <intent>' flips 52% (13/25) of detected hunks to 'aligned'; threshold 20%",
+      "severity": "Medium",
+      "how_found": "Red-team: context comment claiming 'this change implements: <intent>'",
+      "mitigation": "Open. Same root cause as D3. Mitigation: ignore comments claiming intent; flag hunks whose only intent-overlap is in comments.",
+      "test": "test_redteam.py::test_attack_context_comment_claiming_alignment",
+      "status": "open (xfail strict)"
+    }
+  ]
+}

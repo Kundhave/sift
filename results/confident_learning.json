@@ -1,0 +1,66 @@
+{
+  "source": "experiments/results/denoise.json",
+  "n_train": 12600,
+  "true_flips": 569,
+  "random_precision": 0.04515873015873016,
+  "detection": {
+    "prune_by_noise_rate": {
+      "flagged": 1698,
+      "true_flips": 569,
+      "tp": 239,
+      "fp": 1459,
+      "fn": 330,
+      "precision": 0.14075382803297998,
+      "recall": 0.4200351493848858,
+      "f1": 0.21085134539038375
+    },
+    "prune_by_class": {
+      "flagged": 1698,
+      "true_flips": 569,
+      "tp": 239,
+      "fp": 1459,
+      "fn": 330,
+      "precision": 0.14075382803297998,
+      "recall": 0.4200351493848858,
+      "f1": 0.21085134539038375
+    },
+    "both": {
+      "flagged": 1698,
+      "true_flips": 569,
+      "tp": 239,
+      "fp": 1459,
+      "fn": 330,
+      "precision": 0.14075382803297998,
+      "recall": 0.4200351493848858,
+      "f1": 0.21085134539038375
+    },
+    "confident_learning": {
+      "flagged": 1470,
+      "true_flips": 569,
+      "tp": 220,
+      "fp": 1250,
+      "fn": 349,
+      "precision": 0.14965986394557823,
+      "recall": 0.3866432337434095,
+      "f1": 0.21579205492888667
+    },
+    "final drop list (CL + rules)": {
+      "flagged": 1586,
+      "true_flips": 569,
+      "tp": 219,
+      "fp": 1367,
+      "fn": 350,
+      "precision": 0.13808322824716268,
+      "recall": 0.38488576449912126,
+      "f1": 0.20324825986078887
+    }
+  },
+  "oof_auc_vs_clean": 0.6811269822182521,
+  "rules": {
+    "removed": 886,
+    "non_semantic": 384,
+    "duplicates_after_first": 610,
+    "removed_that_are_label_flips": 39
+  },
+  "note": "Co-teaching helper implemented (sift.denoise) but not executed in this study."
+}

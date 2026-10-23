@@ -1,0 +1,34 @@
+{
+  "source": [
+    "experiments/results/gan.json",
+    "results/eval_full.json"
+  ],
+  "compared": {
+    "full ModernBERT": {
+      "macro_f1": 0.6801734696983281,
+      "ndcg@5": 0.8682590720079042,
+      "auc_random": 0.799835255354201,
+      "auc_hard": 0.7255216693418941
+    },
+    "frozen cosine dissimilarity": {
+      "macro_f1": 0.6143345081602578,
+      "ndcg@5": 0.8735368264145923,
+      "auc_random": 0.8138385502471169,
+      "auc_hard": 0.7191011235955056
+    },
+    "gan unsupervised": {
+      "macro_f1": 0.6304347826086957,
+      "ndcg@5": 0.8635436402517368,
+      "auc_random": 0.7841845140032949,
+      "auc_hard": 0.7078651685393258
+    },
+    "gan hybrid with misaligned negatives": {
+      "macro_f1": 0.6245120364346128,
+      "ndcg@5": 0.8710860837842785,
+      "auc_random": 0.8072487644151565,
+      "auc_hard": 0.7046548956661316
+    }
+  },
+  "gan_unsupervised_min_diversity": 0.24861545860767365,
+  "gan_unsupervised_final_diversity": 0.2905047833919525
+}

@@ -1,0 +1,17 @@
+model,group,seed,ndcg@5,source,auc_random,auc_hard,accuracy,macro_f1,precision,recall,specificity,threshold,run,roc_auc,pr_auc,mrr,p@1,ece,ndcg5_random_tier,ndcg5_hard_tier,macro_f1_random_tier,macro_f1_hard_tier,ckpt_size_mb,size_mb,cpu_p50_ms,cpu_p95_ms
+B1 Random order,non_neural,473,0.7236,experiments/results/baselines.json,,,,,,,,,,,,,,,,,,,,,,
+B2 Diff lines changed,non_neural,473,0.7236,experiments/results/baselines.json,,,,,,,,,,,,,,,,,,,,,,
+B3 Hunk size,non_neural,473,0.7206,experiments/results/baselines.json,0.4794,0.4928,,,,,,,,,,,,,,,,,,,,
+B4 TF-IDF dissimilarity,non_neural,473,0.8295,experiments/results/baselines.json,0.8122,0.5514,,,,,,,,,,,,,,,,,,,,
+B5 Logistic regression,non_neural,473,0.8159,experiments/results/baselines.json,0.7768,0.5506,0.783,0.698,0.5059,0.5741,0.8419,0.62,,,,,,,,,,,,,,
+Siamese BiLSTM,dl_baseline,473,0.7829,results/eval_bilstm.json,0.6409,0.5265,0.6819,0.5623,0.3094,0.362,0.7721,0.06,bilstm,0.6297,0.3285,0.7398,0.5658,0.2338,0.8043,0.7443,0.5921,0.5372,17.7,17.7,,
+MiniLM-L6 cross-encoder,dl_baseline,473,0.8347,results/eval_minilm_ce.json,0.7405,0.6356,0.743,0.6161,0.4097,0.3822,0.8447,0.36,minilm_ce,0.6699,0.3673,0.8029,0.6732,0.0588,0.8615,0.7975,0.6566,0.5465,90.9,90.9,,
+CodeBERT cross-encoder,dl_baseline,473,0.7788,results/eval_codebert.json,0.5486,0.6003,0.4781,0.4597,0.2464,0.6667,0.425,0.32,codebert,0.5525,0.2284,0.7311,0.5482,0.1032,0.7727,0.7736,0.4994,0.4928,498.7,498.7,,
+Main: ModernBERT-base,main,473,0.8683,results/eval_full.json,0.7998,0.7255,0.7867,0.6802,0.5164,0.4764,0.8742,0.3,full,0.7771,0.5146,0.8404,0.7237,0.0661,0.8914,0.8359,0.7167,0.6319,596.1,596.1,,
+Frozen-embedding frozen cosine dissimilarity,frozen_embedding,473,0.8735,results/gan_vs_main.json,0.8138,0.7191,,0.6143,,,,,,,,,,,,,,,,,,
+GAN-style baseline: gan unsupervised,gan,473,0.8635,results/gan_vs_main.json,0.7842,0.7079,,0.6304,,,,,,,,,,,,,,,,,,
+GAN-style baseline: gan hybrid with misaligned negatives,gan,473,0.8711,results/gan_vs_main.json,0.8072,0.7047,,0.6245,,,,,,,,,,,,,,,,,,
+Distilled MiniLM student (fp32),student,473,0.8689,results/eval_student.json,0.7941,0.6782,0.7874,0.6669,0.5207,0.4226,0.8903,0.27,student,0.7503,0.472,0.8455,0.7412,0.1071,0.9005,0.8272,0.6956,0.6208,90.9,90.9,,
+"MiniLM student, no distillation",student,473,0.8422,results/eval_student_nodistill.json,0.7595,0.6324,0.7678,0.6338,0.4651,0.3704,0.8799,0.31,student_nodistill,0.719,0.4437,0.8129,0.6864,0.0776,0.8727,0.7974,0.6531,0.5872,90.9,90.9,,
+Student ONNX fp32,student,473,0.8735,results/latency_size_onnx.json (tier AUC / ROC not stored),,,0.7744,0.6692,0.4871,0.4781,0.858,0.39,,,,,0.7478,0.0582,,,,,,90.4005,13.4188,68.7008
+Student ONNX INT8 (deployed target),student,473,0.8685,results/latency_size_onnx.json (tier AUC / ROC not stored),,,0.7789,0.667,0.4972,0.4529,0.8708,0.39,,,,,0.7456,0.0505,,,,,,22.8932,8.5428,66.9375

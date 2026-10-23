@@ -1,0 +1,103 @@
+{
+  "objective": "validation macro-F1 on a val subset (test never used)",
+  "sampler": "TPE",
+  "seed": 473,
+  "planned_trials_brief": 60,
+  "trials_run": 6,
+  "n_train": 1600,
+  "n_val": 800,
+  "epochs": 2,
+  "encoder": "answerdotai/ModernBERT-base",
+  "device": "cuda",
+  "debug_max_steps": 0,
+  "best": {
+    "value": 0.5967181198720624,
+    "params": {
+      "lr": 1.0781748103142333e-05,
+      "max_len": 384,
+      "w_align": 0.548876159925852,
+      "w_drift": 0.15008629610965227,
+      "w_cal": 0.16795281964983508
+    }
+  },
+  "trials": [
+    {
+      "number": 0,
+      "state": "COMPLETE",
+      "value": 0.5967181198720624,
+      "params": {
+        "lr": 1.0781748103142333e-05,
+        "max_len": 384,
+        "w_align": 0.548876159925852,
+        "w_drift": 0.15008629610965227,
+        "w_cal": 0.16795281964983508
+      },
+      "seconds": 75.84733700752258
+    },
+    {
+      "number": 1,
+      "state": "COMPLETE",
+      "value": 0.5745989892331356,
+      "params": {
+        "lr": 2.1803777569783797e-05,
+        "max_len": 384,
+        "w_align": 0.4830264139896204,
+        "w_drift": 0.28158135081622393,
+        "w_cal": 0.05045328136805455
+      },
+      "seconds": 76.27780294418335
+    },
+    {
+      "number": 2,
+      "state": "COMPLETE",
+      "value": 0.593249150072851,
+      "params": {
+        "lr": 1.096845532044202e-05,
+        "max_len": 384,
+        "w_align": 0.7617019959840683,
+        "w_drift": 0.35328388922208487,
+        "w_cal": 0.06511014226782799
+      },
+      "seconds": 76.67979550361633
+    },
+    {
+      "number": 3,
+      "state": "COMPLETE",
+      "value": 0.5902810348638493,
+      "params": {
+        "lr": 1.021380656585538e-05,
+        "max_len": 384,
+        "w_align": 0.6059916172750818,
+        "w_drift": 0.3036656380481397,
+        "w_cal": 0.13827822377210844
+      },
+      "seconds": 76.73508810997009
+    },
+    {
+      "number": 4,
+      "state": "COMPLETE",
+      "value": 0.5765104460756635,
+      "params": {
+        "lr": 3.185711993409956e-05,
+        "max_len": 256,
+        "w_align": 0.5893041993294744,
+        "w_drift": 0.33564157727182775,
+        "w_cal": 0.18624826020241123
+      },
+      "seconds": 68.5892219543457
+    },
+    {
+      "number": 5,
+      "state": "COMPLETE",
+      "value": 0.5563435584808816,
+      "params": {
+        "lr": 2.8864380295180153e-05,
+        "max_len": 384,
+        "w_align": 0.6078100480183966,
+        "w_drift": 0.16314689161992516,
+        "w_cal": 0.16671984026262832
+      },
+      "seconds": 76.66894960403442
+    }
+  ]
+}

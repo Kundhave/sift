@@ -1,0 +1,236 @@
+{
+  "cpu": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "logical_cores": 20
+  },
+  "threads": 4,
+  "note": "CPU shared with a running GPU training job (its data loader / python thread); latencies may be pessimistic. Single pair, batch 1, max_len 512, tokenisation included.",
+  "student_onnx_fp32": {
+    "size_mb": 90.400497,
+    "temperature": 1.685281091393808,
+    "threshold": 0.39,
+    "test": {
+      "accuracy": 0.7744444444444445,
+      "macro_f1": 0.6691862803343989,
+      "f1_aligned": 0.8557897229457732,
+      "f1_misaligned": 0.4825828377230246,
+      "precision": 0.48713550600343053,
+      "recall": 0.4781144781144781,
+      "specificity": 0.8580246913580247,
+      "tn": 1807,
+      "fp": 299,
+      "fn": 310,
+      "tp": 284,
+      "threshold": 0.39,
+      "ndcg@5": 0.8735269856661778,
+      "p@1": 0.7478070175438597,
+      "mrr": 0.8503192409442409,
+      "n_rankable_sessions": 456,
+      "pairwise_auc": {
+        "random": {
+          "auc": 0.7940691927512356,
+          "pairs": 607
+        },
+        "hard": {
+          "auc": 0.695024077046549,
+          "pairs": 623
+        }
+      },
+      "ece": 0.05819147440984293
+    },
+    "calibration": {
+      "temperature": 1.685281091393808,
+      "ece_test_before": 0.11024143060304167,
+      "ece_test_after": 0.0581914775107609,
+      "nll_test_before": 0.5393056049316926,
+      "nll_test_after": 0.4776470930855511,
+      "reliability_after": [
+        {
+          "bin": 0,
+          "n": 276,
+          "mean_conf": 0.08197567040779527,
+          "frac_pos": 0.018115942028985508
+        },
+        {
+          "bin": 1,
+          "n": 1307,
+          "mean_conf": 0.1481791503473577,
+          "frac_pos": 0.1423106350420811
+        },
+        {
+          "bin": 2,
+          "n": 374,
+          "mean_conf": 0.23891812109341196,
+          "frac_pos": 0.18983957219251338
+        },
+        {
+          "bin": 3,
+          "n": 169,
+          "mean_conf": 0.3454175522929,
+          "frac_pos": 0.3076923076923077
+        },
+        {
+          "bin": 4,
+          "n": 125,
+          "mean_conf": 0.4465545294623573,
+          "frac_pos": 0.336
+        },
+        {
+          "bin": 5,
+          "n": 94,
+          "mean_conf": 0.5468745618723034,
+          "frac_pos": 0.39361702127659576
+        },
+        {
+          "bin": 6,
+          "n": 73,
+          "mean_conf": 0.6488277215380673,
+          "frac_pos": 0.4246575342465753
+        },
+        {
+          "bin": 7,
+          "n": 82,
+          "mean_conf": 0.752444223036022,
+          "frac_pos": 0.5365853658536586
+        },
+        {
+          "bin": 8,
+          "n": 199,
+          "mean_conf": 0.8537270098383836,
+          "frac_pos": 0.628140703517588
+        },
+        {
+          "bin": 9,
+          "n": 1,
+          "mean_conf": 0.908561198208036,
+          "frac_pos": 1.0
+        }
+      ]
+    },
+    "latency_ms": {
+      "p50_ms": 13.418787500086182,
+      "p95_ms": 68.70076719965255,
+      "mean_ms": 20.27514146498106,
+      "n": 200
+    },
+    "fp32_vs_int8_logit_corr": null
+  },
+  "student_onnx_int8": {
+    "size_mb": 22.893203,
+    "temperature": 1.695444747730695,
+    "threshold": 0.39,
+    "test": {
+      "accuracy": 0.7788888888888889,
+      "macro_f1": 0.6670161286157692,
+      "f1_aligned": 0.8600234466588511,
+      "f1_misaligned": 0.47400881057268723,
+      "precision": 0.49722735674676527,
+      "recall": 0.45286195286195285,
+      "specificity": 0.8708452041785375,
+      "tn": 1834,
+      "fp": 272,
+      "fn": 325,
+      "tp": 269,
+      "threshold": 0.39,
+      "ndcg@5": 0.8685050841851594,
+      "p@1": 0.7456140350877193,
+      "mrr": 0.846621841852105,
+      "n_rankable_sessions": 456,
+      "pairwise_auc": {
+        "random": {
+          "auc": 0.7841845140032949,
+          "pairs": 607
+        },
+        "hard": {
+          "auc": 0.680577849117175,
+          "pairs": 623
+        }
+      },
+      "ece": 0.050515920942028364
+    },
+    "calibration": {
+      "temperature": 1.695444747730695,
+      "ece_test_before": 0.10803529847282299,
+      "ece_test_after": 0.050515923307942356,
+      "nll_test_before": 0.5401588896530825,
+      "nll_test_after": 0.4776588969784851,
+      "reliability_after": [
+        {
+          "bin": 0,
+          "n": 267,
+          "mean_conf": 0.08333229576781312,
+          "frac_pos": 0.018726591760299626
+        },
+        {
+          "bin": 1,
+          "n": 1330,
+          "mean_conf": 0.14817442319059287,
+          "frac_pos": 0.1443609022556391
+        },
+        {
+          "bin": 2,
+          "n": 394,
+          "mean_conf": 0.24035165236230416,
+          "frac_pos": 0.2182741116751269
+        },
+        {
+          "bin": 3,
+          "n": 184,
+          "mean_conf": 0.3451091713933075,
+          "frac_pos": 0.2608695652173913
+        },
+        {
+          "bin": 4,
+          "n": 119,
+          "mean_conf": 0.4472071540013798,
+          "frac_pos": 0.37815126050420167
+        },
+        {
+          "bin": 5,
+          "n": 84,
+          "mean_conf": 0.5516382644644459,
+          "frac_pos": 0.36904761904761907
+        },
+        {
+          "bin": 6,
+          "n": 54,
+          "mean_conf": 0.651324608779929,
+          "frac_pos": 0.48148148148148145
+        },
+        {
+          "bin": 7,
+          "n": 98,
+          "mean_conf": 0.7511903713949613,
+          "frac_pos": 0.5408163265306123
+        },
+        {
+          "bin": 8,
+          "n": 167,
+          "mean_conf": 0.8492363420205433,
+          "frac_pos": 0.6287425149700598
+        },
+        {
+          "bin": 9,
+          "n": 3,
+          "mean_conf": 0.9022428738008639,
+          "frac_pos": 1.0
+        }
+      ]
+    },
+    "latency_ms": {
+      "p50_ms": 8.542819500235055,
+      "p95_ms": 66.93750434938005,
+      "mean_ms": 17.531663540066802,
+      "n": 200
+    },
+    "fp32_vs_int8_logit_corr": 0.968684047772133
+  },
+  "targets": {
+    "size_mb_lt": 30,
+    "p95_ms_lt": 100
+  },
+  "targets_met": {
+    "size": true,
+    "p95": true
+  }
+}

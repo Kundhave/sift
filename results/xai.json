@@ -1,0 +1,860 @@
+{
+  "n_steps": 24,
+  "baseline": "[PAD] embedding at all non-special positions",
+  "target": "sigmoid(align_logit) = P(misaligned)",
+  "faithfulness": {
+    "n": 100,
+    "threshold": 0.34,
+    "frac_true_misaligned": 0.49,
+    "seconds": 85.06882786750793,
+    "ig": {
+      "3": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.4941294918209314,
+        "mean_p_after_random_k_masked": 0.5206935399025678,
+        "mean_drop_top": 0.08443470738828182,
+        "mean_drop_random": 0.057870659306645394,
+        "verdict_flip_rate_top": 0.27,
+        "verdict_flip_rate_random": 0.2,
+        "frac_top_beats_random": 0.52
+      },
+      "5": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.3862193020433187,
+        "mean_p_after_random_k_masked": 0.48161363445222377,
+        "mean_drop_top": 0.1923448971658945,
+        "mean_drop_random": 0.09695056475698947,
+        "verdict_flip_rate_top": 0.46,
+        "verdict_flip_rate_random": 0.27,
+        "frac_top_beats_random": 0.66
+      },
+      "10": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.28325570121407506,
+        "mean_p_after_random_k_masked": 0.40593671407550574,
+        "mean_drop_top": 0.29530849799513814,
+        "mean_drop_random": 0.17262748513370751,
+        "verdict_flip_rate_top": 0.58,
+        "verdict_flip_rate_random": 0.44,
+        "frac_top_beats_random": 0.64
+      },
+      "20": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.19848696829751133,
+        "mean_p_after_random_k_masked": 0.2997835550457239,
+        "mean_drop_top": 0.3800772309117019,
+        "mean_drop_random": 0.27878064416348936,
+        "verdict_flip_rate_top": 0.74,
+        "verdict_flip_rate_random": 0.57,
+        "frac_top_beats_random": 0.64
+      }
+    },
+    "ixg": {
+      "3": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.42843730419874193,
+        "mean_p_after_random_k_masked": 0.5337604129314423,
+        "mean_drop_top": 0.15012689501047136,
+        "mean_drop_random": 0.044803786277771,
+        "verdict_flip_rate_top": 0.41,
+        "verdict_flip_rate_random": 0.15,
+        "frac_top_beats_random": 0.69
+      },
+      "5": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.3352490039169788,
+        "mean_p_after_random_k_masked": 0.47401500258594753,
+        "mean_drop_top": 0.24331519529223442,
+        "mean_drop_random": 0.10454919662326574,
+        "verdict_flip_rate_top": 0.53,
+        "verdict_flip_rate_random": 0.28,
+        "frac_top_beats_random": 0.71
+      },
+      "10": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.22794379564002157,
+        "mean_p_after_random_k_masked": 0.4327664067782462,
+        "mean_drop_top": 0.3506204035691917,
+        "mean_drop_random": 0.1457977924309671,
+        "verdict_flip_rate_top": 0.68,
+        "verdict_flip_rate_random": 0.36,
+        "frac_top_beats_random": 0.72
+      },
+      "20": {
+        "mean_p_orig": 0.5785641992092132,
+        "mean_p_after_top_k_masked": 0.17621157852001487,
+        "mean_p_after_random_k_masked": 0.300015578456223,
+        "mean_drop_top": 0.40235262068919836,
+        "mean_drop_random": 0.27854862075299025,
+        "verdict_flip_rate_top": 0.77,
+        "verdict_flip_rate_random": 0.58,
+        "frac_top_beats_random": 0.67
+      }
+    }
+  },
+  "abs_attribution_share_on_intent_tokens_mean": 0.18953263759613037,
+  "cases": {
+    "aligned": {
+      "sample_id": "SIFT-017909",
+      "repo": "attrs",
+      "p": 0.02457553893327713,
+      "true": "aligned",
+      "drift_true": "none",
+      "intent": "Use latest setup-python",
+      "top_intent_tokens": [
+        [
+          "latest",
+          -0.06458379328250885
+        ],
+        [
+          "Use",
+          0.03726394101977348
+        ],
+        [
+          "setup",
+          -0.035634007304906845
+        ],
+        [
+          "-",
+          -0.01692703552544117
+        ],
+        [
+          "python",
+          0.0037272381596267223
+        ]
+      ],
+      "top_hunk_lines": [
+        [
+          "+      - uses: \"actions/setup-python@v2\"",
+          0.11172682815231383
+        ],
+        [
+          ".github/workflows/main.yml",
+          0.03180841449648142
+        ],
+        [
+          "         with:",
+          0.029528445564210415
+        ]
+      ],
+      "ui": {
+        "intent_words": [
+          {
+            "word": "Use",
+            "score": 0.03726394101977348
+          },
+          {
+            "word": "latest",
+            "score": -0.06458379328250885
+          },
+          {
+            "word": "setup",
+            "score": -0.035634007304906845
+          },
+          {
+            "word": "-",
+            "score": -0.01692703552544117
+          },
+          {
+            "word": "python",
+            "score": 0.0037272381596267223
+          }
+        ],
+        "hunk_lines": [
+          {
+            "line": ".github/workflows/main.yml",
+            "score": 0.03180841449648142
+          },
+          {
+            "line": "@@ -23,7 +23,7 @@ jobs:",
+            "score": -0.13793150056153536
+          },
+          {
+            "line": " ",
+            "score": 0.0
+          },
+          {
+            "line": "     steps:",
+            "score": -0.031156709417700768
+          },
+          {
+            "line": "       - uses: \"actions/checkout@v2\"",
+            "score": 0.024579836055636406
+          },
+          {
+            "line": "-      - uses: \"actions/setup-python@v1\"",
+            "score": -0.03721391211729497
+          },
+          {
+            "line": "+      - uses: \"actions/setup-python@v2\"",
+            "score": 0.11172682815231383
+          },
+          {
+            "line": "         with:",
+            "score": 0.029528445564210415
+          },
+          {
+            "line": "           python-version: \"${{ matrix.python-version }}\"",
+            "score": -0.2841770723462105
+          },
+          {
+            "line": "       - name: \"Install dependencies\"",
+            "score": -0.2244942532852292
+          }
+        ],
+        "hunk": "@@ -23,7 +23,7 @@ jobs:\n \n     steps:\n       - uses: \"actions/checkout@v2\"\n-      - uses: \"actions/setup-python@v1\"\n+      - uses: \"actions/setup-python@v2\"\n         with:\n           python-version: \"${{ matrix.python-version }}\"\n       - name: \"Install dependencies\"",
+        "file_path": ".github/workflows/main.yml"
+      }
+    },
+    "collateral": {
+      "sample_id": "SIFT-017393",
+      "repo": "attrs",
+      "p": 0.9570744037628174,
+      "true": "misaligned",
+      "drift_true": "collateral",
+      "intent": "Bump CodSpeedHQ/action from 3.5.0 to 3.8.0. Bumps [CodSpeedHQ/action](https://github.com/codspeedhq/action) from 3.5.0 to 3.8.0.",
+      "top_intent_tokens": [
+        [
+          ".",
+          0.1527315378189087
+        ],
+        [
+          "/",
+          -0.11333172023296356
+        ],
+        [
+          "Bump",
+          0.07803297601640224
+        ],
+        [
+          ".",
+          -0.0658770352602005
+        ],
+        [
+          "3",
+          -0.05074111744761467
+        ],
+        [
+          "CodSpeedHQ",
+          0.04619694873690605
+        ]
+      ],
+      "top_hunk_lines": [
+        [
+          "         hints = typing.get_type_hints(cls, globalns=globalns, localns=localns)",
+          0.1691965009085834
+        ],
+        [
+          "+    if getattr(cls, \"__attrs_types_resolved__\", None) != cls:",
+          0.1660770020680502
+        ],
+        [
+          "-        cls.__attrs_types_resolved__",
+          0.0412446353584528
+        ]
+      ],
+      "ui": {
+        "intent_words": [
+          {
+            "word": "Bump",
+            "score": 0.07803297601640224
+          },
+          {
+            "word": "CodSpeedHQ",
+            "score": 0.04619694873690605
+          },
+          {
+            "word": "/",
+            "score": -0.11333172023296356
+          },
+          {
+            "word": "action",
+            "score": -0.011976927518844604
+          },
+          {
+            "word": "from",
+            "score": -0.023856673389673233
+          },
+          {
+            "word": "3",
+            "score": -0.05074111744761467
+          },
+          {
+            "word": ".",
+            "score": -0.0658770352602005
+          },
+          {
+            "word": "5",
+            "score": 0.0063595762476325035
+          },
+          {
+            "word": ".",
+            "score": 0.0003828960470855236
+          },
+          {
+            "word": "0",
+            "score": 0.0069936905056238174
+          },
+          {
+            "word": "to",
+            "score": -0.001885770820081234
+          },
+          {
+            "word": "3",
+            "score": -0.00017493637278676033
+          },
+          {
+            "word": ".",
+            "score": 0.0316414013504982
+          },
+          {
+            "word": "8",
+            "score": -0.002045341767370701
+          },
+          {
+            "word": ".",
+            "score": 0.02628907933831215
+          },
+          {
+            "word": "0",
+            "score": 0.00954312551766634
+          },
+          {
+            "word": ".",
+            "score": -0.028868533670902252
+          },
+          {
+            "word": "Bumps",
+            "score": -0.0003898697905242443
+          },
+          {
+            "word": "[",
+            "score": 0.007195052225142717
+          },
+          {
+            "word": "CodSpeedHQ",
+            "score": 0.0286602268461138
+          },
+          {
+            "word": "/",
+            "score": -0.0012753764167428017
+          },
+          {
+            "word": "action",
+            "score": 0.007207806222140789
+          },
+          {
+            "word": "]",
+            "score": 0.020247958600521088
+          },
+          {
+            "word": "(",
+            "score": 0.0
+          },
+          {
+            "word": "https",
+            "score": 0.014546787366271019
+          },
+          {
+            "word": ":",
+            "score": 0.001095871441066265
+          },
+          {
+            "word": "/",
+            "score": 0.0
+          },
+          {
+            "word": "/",
+            "score": 0.0
+          },
+          {
+            "word": "github",
+            "score": -0.0056162988767027855
+          },
+          {
+            "word": ".",
+            "score": -0.012668929062783718
+          },
+          {
+            "word": "com",
+            "score": -0.006309387274086475
+          },
+          {
+            "word": "/",
+            "score": 0.022873405367136
+          },
+          {
+            "word": "codspeedhq",
+            "score": -0.013530627591535449
+          },
+          {
+            "word": "/",
+            "score": 0.012630956247448921
+          },
+          {
+            "word": "action",
+            "score": -0.01840832643210888
+          },
+          {
+            "word": ")",
+            "score": 0.003017325419932604
+          },
+          {
+            "word": "from",
+            "score": 0.012872064486145973
+          },
+          {
+            "word": "3",
+            "score": -0.00773872435092926
+          },
+          {
+            "word": ".",
+            "score": 0.028885677456855774
+          },
+          {
+            "word": "5",
+            "score": 0.008322099223732948
+          },
+          {
+            "word": ".",
+            "score": 0.043868593871593475
+          },
+          {
+            "word": "0",
+            "score": 0.0127492006868124
+          },
+          {
+            "word": "to",
+            "score": 0.03844841942191124
+          },
+          {
+            "word": "3",
+            "score": -0.01104898564517498
+          },
+          {
+            "word": ".",
+            "score": 0.01669204793870449
+          },
+          {
+            "word": "8",
+            "score": -0.024349458515644073
+          },
+          {
+            "word": ".",
+            "score": 0.028493370860815048
+          },
+          {
+            "word": "0",
+            "score": -0.0035318522714078426
+          },
+          {
+            "word": ".",
+            "score": 0.1527315378189087
+          }
+        ],
+        "hunk_lines": [
+          {
+            "line": "src/attr/_funcs.py",
+            "score": -0.1972337132319808
+          },
+          {
+            "line": "@@ -377,11 +377,9 @@ def resolve_types(cls, globalns=None, localns=None, attribs=None):",
+            "score": -0.2954295502277091
+          },
+          {
+            "line": "     ..  versionadded:: 21.1.0 *attribs*",
+            "score": -0.048774720169603825
+          },
+          {
+            "line": " ",
+            "score": 0.0
+          },
+          {
+            "line": "     \"\"\"",
+            "score": -0.011746489442884922
+          },
+          {
+            "line": "-    try:",
+            "score": 0.005613091867417097
+          },
+          {
+            "line": "-        # Since calling get_type_hints is expensive we cache whether we've",
+            "score": 0.024464971385896206
+          },
+          {
+            "line": "-        # done it already.",
+            "score": 0.03136609774082899
+          },
+          {
+            "line": "-        cls.__attrs_types_resolved__",
+            "score": 0.0412446353584528
+          },
+          {
+            "line": "-    except AttributeError:",
+            "score": 0.003428839729167521
+          },
+          {
+            "line": "+    # Since calling get_type_hints is expensive we cache whether we've",
+            "score": 0.034028894966468215
+          },
+          {
+            "line": "+    # done it already.",
+            "score": 0.04096678597852588
+          },
+          {
+            "line": "+    if getattr(cls, \"__attrs_types_resolved__\", None) != cls:",
+            "score": 0.1660770020680502
+          },
+          {
+            "line": "         import typing",
+            "score": 0.02341010421514511
+          },
+          {
+            "line": " ",
+            "score": 0.0
+          },
+          {
+            "line": "         hints = typing.get_type_hints(cls, globalns=globalns, localns=localns)",
+            "score": 0.1691965009085834
+          }
+        ],
+        "hunk": "@@ -377,11 +377,9 @@ def resolve_types(cls, globalns=None, localns=None, attribs=None):\n     ..  versionadded:: 21.1.0 *attribs*\n \n     \"\"\"\n-    try:\n-        # Since calling get_type_hints is expensive we cache whether we've\n-        # done it already.\n-        cls.__attrs_types_resolved__\n-    except AttributeError:\n+    # Since calling get_type_hints is expensive we cache whether we've\n+    # done it already.\n+    if getattr(cls, \"__attrs_types_resolved__\", None) != cls:\n         import typing\n \n         hints = typing.get_type_hints(cls, globalns=globalns, localns=localns)",
+        "file_path": "src/attr/_funcs.py"
+      }
+    },
+    "scope_expansion": {
+      "sample_id": "SIFT-017837",
+      "repo": "axios",
+      "p": 0.8976940512657166,
+      "true": "misaligned",
+      "drift_true": "scope_expansion",
+      "intent": ": Send `false` flag isStandardBrowserEnv for Nativescript",
+      "top_intent_tokens": [
+        [
+          "isStandardBrowserEnv",
+          0.28540924564003944
+        ],
+        [
+          "`",
+          -0.05946308374404907
+        ],
+        [
+          "flag",
+          0.05280224606394768
+        ],
+        [
+          "`",
+          -0.04984784871339798
+        ],
+        [
+          ":",
+          -0.03570172190666199
+        ],
+        [
+          "Send",
+          -0.0315895639359951
+        ]
+      ],
+      "top_hunk_lines": [
+        [
+          " /**",
+          0.7388479635119438
+        ],
+        [
+          "  * Determine if a value is a Buffer",
+          0.23567483946681023
+        ],
+        [
+          "+  return typeof val === 'undefined';",
+          0.20434547099284828
+        ]
+      ],
+      "ui": {
+        "intent_words": [
+          {
+            "word": ":",
+            "score": -0.03570172190666199
+          },
+          {
+            "word": "Send",
+            "score": -0.0315895639359951
+          },
+          {
+            "word": "`",
+            "score": -0.04984784871339798
+          },
+          {
+            "word": "false",
+            "score": 0.029159728437662125
+          },
+          {
+            "word": "`",
+            "score": -0.05946308374404907
+          },
+          {
+            "word": "flag",
+            "score": 0.05280224606394768
+          },
+          {
+            "word": "isStandardBrowserEnv",
+            "score": 0.28540924564003944
+          },
+          {
+            "word": "for",
+            "score": 0.02915751002728939
+          },
+          {
+            "word": "Nativescript",
+            "score": -0.007983862422406673
+          }
+        ],
+        "hunk_lines": [
+          {
+            "line": "lib/utils.js",
+            "score": 0.18462173826992512
+          },
+          {
+            "line": "@@ -18,6 +18,15 @@ function isArray(val) {",
+            "score": -0.14778055367060006
+          },
+          {
+            "line": "   return toString.call(val) === '[object Array]';",
+            "score": -0.10502563929185271
+          },
+          {
+            "line": " }",
+            "score": 0.03168850112706423
+          },
+          {
+            "line": " ",
+            "score": 0.03196961060166359
+          },
+          {
+            "line": "+/**",
+            "score": 0.04509099246934056
+          },
+          {
+            "line": "+ * Determine if a value is undefined",
+            "score": 0.09885400161147118
+          },
+          {
+            "line": "+ *",
+            "score": 0.021119410637766123
+          },
+          {
+            "line": "+ * @param {Object} val The value to test",
+            "score": -0.5242682350799441
+          },
+          {
+            "line": "+ * @returns {boolean} True if the value is undefined, otherwise false",
+            "score": -0.03195482911542058
+          },
+          {
+            "line": "+ */",
+            "score": 0.021445786813274026
+          },
+          {
+            "line": "+function isUndefined(val) {",
+            "score": 0.168999956920743
+          },
+          {
+            "line": "+  return typeof val === 'undefined';",
+            "score": 0.20434547099284828
+          },
+          {
+            "line": "+}",
+            "score": -0.022001614794135094
+          },
+          {
+            "line": " ",
+            "score": 0.0
+          },
+          {
+            "line": " /**",
+            "score": 0.7388479635119438
+          },
+          {
+            "line": "  * Determine if a value is a Buffer",
+            "score": 0.23567483946681023
+          }
+        ],
+        "hunk": "@@ -18,6 +18,15 @@ function isArray(val) {\n   return toString.call(val) === '[object Array]';\n }\n \n+/**\n+ * Determine if a value is undefined\n+ *\n+ * @param {Object} val The value to test\n+ * @returns {boolean} True if the value is undefined, otherwise false\n+ */\n+function isUndefined(val) {\n+  return typeof val === 'undefined';\n+}\n \n /**\n  * Determine if a value is a Buffer",
+        "file_path": "lib/utils.js"
+      }
+    },
+    "purpose_drift": {
+      "sample_id": "SIFT-017387",
+      "repo": "httpx",
+      "p": 0.9084259867668152,
+      "true": "misaligned",
+      "drift_true": "purpose_drift",
+      "intent": "Bump the python-packages group with 8 updates",
+      "top_intent_tokens": [
+        [
+          "the",
+          0.24769645929336548
+        ],
+        [
+          "Bump",
+          -0.11092005670070648
+        ],
+        [
+          "group",
+          -0.05213457718491554
+        ],
+        [
+          "packages",
+          0.039880380034446716
+        ],
+        [
+          "with",
+          -0.019603565335273743
+        ],
+        [
+          "-",
+          -0.01849423721432686
+        ]
+      ],
+      "top_hunk_lines": [
+        [
+          "+            \"type\": \"http.response.start\",",
+          0.218722072429955
+        ],
+        [
+          "@@ -103,6 +105,16 @@ async def slow_response(scope, receive, send):",
+          0.18623580830171704
+        ],
+        [
+          "     status_code = int(scope[\"path\"].replace(\"/status/\", \"\"))",
+          0.15849753993097693
+        ]
+      ],
+      "ui": {
+        "intent_words": [
+          {
+            "word": "Bump",
+            "score": -0.11092005670070648
+          },
+          {
+            "word": "the",
+            "score": 0.24769645929336548
+          },
+          {
+            "word": "python",
+            "score": -0.0044936263002455235
+          },
+          {
+            "word": "-",
+            "score": -0.01849423721432686
+          },
+          {
+            "word": "packages",
+            "score": 0.039880380034446716
+          },
+          {
+            "word": "group",
+            "score": -0.05213457718491554
+          },
+          {
+            "word": "with",
+            "score": -0.019603565335273743
+          },
+          {
+            "word": "8",
+            "score": -0.0008158311247825623
+          },
+          {
+            "word": "updates",
+            "score": -0.002962671220302582
+          }
+        ],
+        "hunk_lines": [
+          {
+            "line": "tests/conftest.py",
+            "score": -0.129452352412045
+          },
+          {
+            "line": "@@ -103,6 +105,16 @@ async def slow_response(scope, receive, send):",
+            "score": 0.18623580830171704
+          },
+          {
+            "line": "     await send({\"type\": \"http.response.body\", \"body\": b\"Hello, world!\"})",
+            "score": 0.07404014701023698
+          },
+          {
+            "line": " ",
+            "score": 0.0
+          },
+          {
+            "line": " ",
+            "score": 0.014847387559711933
+          },
+          {
+            "line": "+async def premature_close(scope, receive, send):",
+            "score": 0.028560125501826406
+          },
+          {
+            "line": "+    await send(",
+            "score": 0.016800904646515846
+          },
+          {
+            "line": "+        {",
+            "score": 0.017811349593102932
+          },
+          {
+            "line": "+            \"type\": \"http.response.start\",",
+            "score": 0.218722072429955
+          },
+          {
+            "line": "+            \"status\": 200,",
+            "score": 0.05653796438127756
+          },
+          {
+            "line": "+            \"headers\": [[b\"content-type\", b\"text/plain\"]],",
+            "score": 0.03707086876966059
+          },
+          {
+            "line": "+        }",
+            "score": 0.023003369802609086
+          },
+          {
+            "line": "+    )",
+            "score": 0.04317314410582185
+          },
+          {
+            "line": "+",
+            "score": 0.015433196676895022
+          },
+          {
+            "line": "+",
+            "score": 0.022997872671112418
+          },
+          {
+            "line": " async def status_code(scope, receive, send):",
+            "score": 0.12956018710974604
+          },
+          {
+            "line": "     status_code = int(scope[\"path\"].replace(\"/status/\", \"\"))",
+            "score": 0.15849753993097693
+          },
+          {
+            "line": "     await send(",
+            "score": 0.0054217244032770395
+          }
+        ],
+        "hunk": "@@ -103,6 +105,16 @@ async def slow_response(scope, receive, send):\n     await send({\"type\": \"http.response.body\", \"body\": b\"Hello, world!\"})\n \n \n+async def premature_close(scope, receive, send):\n+    await send(\n+        {\n+            \"type\": \"http.response.start\",\n+            \"status\": 200,\n+            \"headers\": [[b\"content-type\", b\"text/plain\"]],\n+        }\n+    )\n+\n+\n async def status_code(scope, receive, send):\n     status_code = int(scope[\"path\"].replace(\"/status/\", \"\"))\n     await send(",
+        "file_path": "tests/conftest.py"
+      }
+    }
+  },
+  "latency_ms": {
+    "score_p50": 24.744659499447152,
+    "explain_ig_p50": 506.0645129997283,
+    "explain_ig_p95": 1328.0106932498707,
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "note": "may be inflated if other jobs shared the GPU"
+  },
+  "peak_gpu_mem_gb": 0.990784,
+  "method_note": "IG with captum, 24 steps, PAD-embedding baseline; faithfulness = replace top-k attributed content tokens by [PAD] vs k random tokens, on hunks predicted misaligned (test split)."
+}

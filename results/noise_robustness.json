@@ -1,0 +1,266 @@
+{
+  "setting": "REDUCED: ModernBERT-base, train subset 3000 rows (seed 473), 2 epochs, max_len 256, micro_bs 8 x accum 2, bf16, single seed; symmetric label flips injected at the stated rate on label_clean; denoising = rule filter + confident learning (prune_by_noise_rate) on 5-fold OOF TF-IDF/logistic-regression probabilities (not the ModernBERT OOF used in the main denoising study); eval on full val (threshold) and test (label_clean).",
+  "debug_max_steps": 0,
+  "results": [
+    {
+      "noise_rate": 0.0,
+      "arm": "no_denoise",
+      "n_train_used": 3000,
+      "realised_flip_rate": 0.0,
+      "denoise_info": {},
+      "test": {
+        "macro_f1": 0.5365912819115322,
+        "precision": 0.27334083239595053,
+        "recall": 0.4090909090909091,
+        "specificity": 0.6932573599240266,
+        "ndcg@5": 0.7875886478538541,
+        "ece": 0.15469015660109345,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.5650741350906096,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.5746388443017657,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 142.04253339767456
+    },
+    {
+      "noise_rate": 0.0,
+      "arm": "denoise",
+      "n_train_used": 2670,
+      "realised_flip_rate": 0.0,
+      "denoise_info": {
+        "rule_removed": 145,
+        "cl_flagged": {
+          "flagged": 185,
+          "true_flips": 0,
+          "tp": 0,
+          "fp": 185,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "kept": 2670
+      },
+      "test": {
+        "macro_f1": 0.5298295125957112,
+        "precision": 0.2718808193668529,
+        "recall": 0.49158249158249157,
+        "specificity": 0.6286799620132953,
+        "ndcg@5": 0.8103801713730772,
+        "ece": 0.13438754017706273,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.6466227347611203,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.6019261637239165,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 129.9449064731598
+    },
+    {
+      "noise_rate": 0.1,
+      "arm": "no_denoise",
+      "n_train_used": 3000,
+      "realised_flip_rate": 0.10266666666666667,
+      "denoise_info": {},
+      "test": {
+        "macro_f1": 0.5857705444297205,
+        "precision": 0.3407821229050279,
+        "recall": 0.4107744107744108,
+        "specificity": 0.7758784425451092,
+        "ndcg@5": 0.7987595722436611,
+        "ece": 0.1752201392363619,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.5873146622734761,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.5947030497592295,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 142.1710832118988
+    },
+    {
+      "noise_rate": 0.1,
+      "arm": "denoise",
+      "n_train_used": 2600,
+      "realised_flip_rate": 0.10266666666666667,
+      "denoise_info": {
+        "rule_removed": 145,
+        "cl_flagged": {
+          "flagged": 255,
+          "true_flips": 308,
+          "tp": 98,
+          "fp": 157,
+          "fn": 210,
+          "precision": 0.3843137254901961,
+          "recall": 0.3181818181818182,
+          "f1": 0.3481349911190053
+        },
+        "kept": 2600
+      },
+      "test": {
+        "macro_f1": 0.5916130081496696,
+        "precision": 0.3385416666666667,
+        "recall": 0.5471380471380471,
+        "specificity": 0.6984805318138652,
+        "ndcg@5": 0.8196466555146692,
+        "ece": 0.13061486620593954,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.6614497528830313,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.6581059390048154,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 127.17784905433655
+    },
+    {
+      "noise_rate": 0.2,
+      "arm": "no_denoise",
+      "n_train_used": 3000,
+      "realised_flip_rate": 0.204,
+      "denoise_info": {},
+      "test": {
+        "macro_f1": 0.5197974959983125,
+        "precision": 0.27007299270072993,
+        "recall": 0.5606060606060606,
+        "specificity": 0.5726495726495726,
+        "ndcg@5": 0.7756917746340374,
+        "ece": 0.20643442156138245,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.5337726523887973,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.5858747993579454,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 142.02523279190063
+    },
+    {
+      "noise_rate": 0.2,
+      "arm": "denoise",
+      "n_train_used": 2495,
+      "realised_flip_rate": 0.204,
+      "denoise_info": {
+        "rule_removed": 145,
+        "cl_flagged": {
+          "flagged": 360,
+          "true_flips": 612,
+          "tp": 226,
+          "fp": 134,
+          "fn": 386,
+          "precision": 0.6277777777777778,
+          "recall": 0.369281045751634,
+          "f1": 0.46502057613168724
+        },
+        "kept": 2495
+      },
+      "test": {
+        "macro_f1": 0.6071353078544457,
+        "precision": 0.3786707882534776,
+        "recall": 0.41245791245791247,
+        "specificity": 0.8091168091168092,
+        "ndcg@5": 0.8135473182407171,
+        "ece": 0.15801266975976805,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.6392092257001647,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.5963081861958266,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 123.75822019577026
+    },
+    {
+      "noise_rate": 0.3,
+      "arm": "no_denoise",
+      "n_train_used": 3000,
+      "realised_flip_rate": 0.30233333333333334,
+      "denoise_info": {},
+      "test": {
+        "macro_f1": 0.5111145061492629,
+        "precision": 0.25833333333333336,
+        "recall": 0.15656565656565657,
+        "specificity": 0.8732193732193733,
+        "ndcg@5": 0.743820372839164,
+        "ece": 0.23651706475902484,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.46375617792421747,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.5240770465489567,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 141.91986751556396
+    },
+    {
+      "noise_rate": 0.3,
+      "arm": "denoise",
+      "n_train_used": 2370,
+      "realised_flip_rate": 0.30233333333333334,
+      "denoise_info": {
+        "rule_removed": 145,
+        "cl_flagged": {
+          "flagged": 485,
+          "true_flips": 907,
+          "tp": 347,
+          "fp": 138,
+          "fn": 560,
+          "precision": 0.7154639175257732,
+          "recall": 0.38257993384785005,
+          "f1": 0.4985632183908046
+        },
+        "kept": 2370
+      },
+      "test": {
+        "macro_f1": 0.53907426677133,
+        "precision": 0.2773613193403298,
+        "recall": 0.3114478114478115,
+        "specificity": 0.7711301044634378,
+        "ndcg@5": 0.7823420364392321,
+        "ece": 0.2054881734318204,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.5757825370675453,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.5971107544141252,
+            "pairs": 623
+          }
+        }
+      },
+      "seconds": 118.33813834190369
+    }
+  ]
+}

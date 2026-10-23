@@ -1,0 +1,15 @@
+model,format,size_mb,cpu_p50_ms,cpu_p95_ms,note
+Ablation: hunk-only,PyTorch checkpoint,596.1,,,latency not measured
+Ablation: intent-only,PyTorch checkpoint,596.1,,,latency not measured
+Ablation: no intent consolidation,PyTorch checkpoint,596.1,,,latency not measured
+Ablation: no denoising,PyTorch checkpoint,596.1,,,latency not measured
+Ablation: no focal loss (CE),PyTorch checkpoint,596.1,,,latency not measured
+Ablation: alignment head only,PyTorch checkpoint,596.1,,,latency not measured
+Siamese BiLSTM,PyTorch checkpoint,17.7,,,latency not measured
+CodeBERT cross-encoder,PyTorch checkpoint,498.7,,,latency not measured
+MiniLM-L6 cross-encoder,PyTorch checkpoint,90.9,,,latency not measured
+Distilled MiniLM student (fp32),PyTorch checkpoint,90.9,,,latency not measured
+"MiniLM student, no distillation",PyTorch checkpoint,90.9,,,latency not measured
+MiniLM student,ONNX fp32,90.4005,13.4188,68.7008,"13th Gen Intel(R) Core(TM) i7-13650HX, 4 threads, batch 1, tokenisation included; CPU shared with a training job"
+MiniLM student,ONNX INT8,22.8932,8.5428,66.9375,"13th Gen Intel(R) Core(TM) i7-13650HX, 4 threads, batch 1, tokenisation included; CPU shared with a training job"
+Main ModernBERT,PyTorch fp32 (CPU),596.1223,94.5025,95.082,"13th Gen Intel(R) Core(TM) i7-13650HX, 14 torch threads, batch 1, L 512, tokenisation incl., idle machine; GPU p50/p95 11.6/11.9 ms, peak 631 MB (from latency_full.json)"

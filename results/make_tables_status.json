@@ -1,0 +1,28 @@
+{
+  "made": [
+    "master_comparison.csv",
+    "master_comparison.json",
+    "per_tier_table.csv",
+    "ablation.csv",
+    "ablation.json",
+    "dataset_statistics.csv",
+    "hyperparameters.csv",
+    "latency_size.csv",
+    "noise_robustness_table.csv",
+    "training_validation_loss_curves.png",
+    "pr_curves_all_models.png",
+    "roc_curves_per_tier.png",
+    "confusion_matrix_main.png",
+    "ndcg_vs_k_all_models.png",
+    "per_tier_pairwise_auc_bars.png",
+    "ablation_bars.png",
+    "latency_vs_size_scatter.png"
+  ],
+  "skipped": {
+    "model:full_tuned": "no finished results.json / eval json yet (not run or still training); no row, no invented numbers"
+  },
+  "counts": {
+    "png_in_results": 19,
+    "csv_tables_in_results": 7
+  }
+}

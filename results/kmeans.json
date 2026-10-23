@@ -1,0 +1,240 @@
+{
+  "embedding": "full model pooled [CLS] (768-d), L2-normalised; k-means fit on 4000 random train pairs (seed 473); val/test assigned by nearest centroid (cosine)",
+  "n_fit": 4000,
+  "k_scan": {
+    "k": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "inertia": [
+      1978.8865966796875,
+      1834.5048828125,
+      1699.737060546875,
+      1648.61279296875,
+      1612.8743896484375,
+      1587.5556640625,
+      1568.816162109375,
+      1551.0545654296875,
+      1535.3330078125,
+      1524.11181640625,
+      1515.427978515625,
+      1504.7235107421875,
+      1494.500244140625,
+      1486.9813232421875,
+      1479.844970703125,
+      1469.97802734375,
+      1462.496826171875,
+      1455.5645751953125,
+      1451.972412109375
+    ],
+    "silhouette": [
+      0.08845308423042297,
+      0.1075129359960556,
+      0.11865895241498947,
+      0.09365157037973404,
+      0.09111782163381577,
+      0.08961725980043411,
+      0.0853603407740593,
+      0.07860670983791351,
+      0.07165814936161041,
+      0.07070760428905487,
+      0.06582120060920715,
+      0.051248952746391296,
+      0.05175074189901352,
+      0.057358235120773315,
+      0.05612011253833771,
+      0.03959031403064728,
+      0.03587769716978073,
+      0.040111690759658813,
+      0.035216111689805984
+    ]
+  },
+  "k_chosen": 4,
+  "k_rule": "k maximising silhouette on the train fit set (elbow plotted for inspection; no sharp elbow is claimed)",
+  "clustering_quality": {
+    "train_fit": {
+      "purity_vs_alignment": 0.83825,
+      "purity_vs_drift4": 0.83425,
+      "nmi_vs_alignment": 0.1748021577457676,
+      "nmi_vs_drift4": 0.23001288767234088,
+      "majority_class_rate_alignment": 0.77625
+    },
+    "val": {
+      "purity_vs_alignment": 0.8051851851851852,
+      "purity_vs_drift4": 0.7914814814814815,
+      "nmi_vs_alignment": 0.1218246474161719,
+      "nmi_vs_drift4": 0.13765887489750137,
+      "majority_class_rate_alignment": 0.78
+    },
+    "test": {
+      "purity_vs_alignment": 0.8003703703703704,
+      "purity_vs_drift4": 0.784074074074074,
+      "nmi_vs_alignment": 0.10156880273718452,
+      "nmi_vs_drift4": 0.1065400190726818,
+      "majority_class_rate_alignment": 0.78
+    }
+  },
+  "test_cluster_table": [
+    {
+      "cluster": 0,
+      "n": 785,
+      "misaligned_rate": 0.3375796178343949,
+      "train_prior": 0.31498618784530386,
+      "drift_counts": {
+        "aligned": 520,
+        "collateral": 80,
+        "purpose_drift": 75,
+        "scope_expansion": 110
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 363,
+      "misaligned_rate": 0.008264462809917356,
+      "train_prior": 0.0031073446327683617,
+      "drift_counts": {
+        "aligned": 360,
+        "collateral": 1,
+        "purpose_drift": 1,
+        "scope_expansion": 1
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 1263,
+      "misaligned_rate": 0.12193190815518606,
+      "train_prior": 0.07132752992383025,
+      "drift_counts": {
+        "aligned": 1109,
+        "collateral": 58,
+        "purpose_drift": 35,
+        "scope_expansion": 61
+      }
+    },
+    {
+      "cluster": 3,
+      "n": 289,
+      "misaligned_rate": 0.5951557093425606,
+      "train_prior": 0.8186842105263159,
+      "drift_counts": {
+        "aligned": 117,
+        "collateral": 128,
+        "purpose_drift": 20,
+        "scope_expansion": 24
+      }
+    }
+  ],
+  "hybrid": {
+    "logit_only_platt": {
+      "test": {
+        "accuracy": 0.774074074074074,
+        "macro_f1": 0.6803528190668864,
+        "f1_aligned": 0.8534358481499279,
+        "f1_misaligned": 0.5072697899838449,
+        "precision": 0.48757763975155277,
+        "recall": 0.5286195286195287,
+        "specificity": 0.8433048433048433,
+        "tn": 1776,
+        "fp": 330,
+        "fn": 280,
+        "tp": 314,
+        "threshold": 0.30000000000000004,
+        "ndcg@5": 0.8682255352435396,
+        "p@1": 0.7236842105263158,
+        "mrr": 0.8399229410331385,
+        "n_rankable_sessions": 456,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.7973640856672158,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.7199036918138042,
+            "pairs": 623
+          }
+        },
+        "ece": 0.029828074170207535
+      },
+      "coef": [
+        [
+          0.7738524675369263
+        ]
+      ],
+      "features": [
+        "logit"
+      ]
+    },
+    "logit_plus_cluster_features": {
+      "test": {
+        "accuracy": 0.7796296296296297,
+        "macro_f1": 0.6908312261808698,
+        "f1_aligned": 0.8565227875572703,
+        "f1_misaligned": 0.5251396648044693,
+        "precision": 0.4992412746585736,
+        "recall": 0.5538720538720538,
+        "specificity": 0.8433048433048433,
+        "tn": 1776,
+        "fp": 330,
+        "fn": 265,
+        "tp": 329,
+        "threshold": 0.30000000000000004,
+        "ndcg@5": 0.873540962006528,
+        "p@1": 0.7346491228070176,
+        "mrr": 0.8475877192982456,
+        "n_rankable_sessions": 456,
+        "pairwise_auc": {
+          "random": {
+            "auc": 0.8187808896210873,
+            "pairs": 607
+          },
+          "hard": {
+            "auc": 0.7207062600321027,
+            "pairs": 623
+          }
+        },
+        "ece": 0.032741672108840235
+      },
+      "coef": [
+        [
+          0.6906091121979335,
+          0.4538104220440105,
+          1.2685621019056899
+        ]
+      ],
+      "features": [
+        "logit",
+        "cluster_prior",
+        "dist_to_centroid"
+      ]
+    },
+    "delta_cluster_minus_baseline": {
+      "macro_f1": 0.010478407113983401,
+      "ndcg@5": 0.005315426762988351,
+      "ece": 0.0029135979386326998,
+      "auc_random": 0.021416803953871466,
+      "auc_hard": 0.0008025682182984939
+    }
+  },
+  "honest_conclusion": "Cluster features change test macro-F1 by +0.0105, NDCG@5 by +0.0053, hard-tier AUC by +0.0008, ECE by +0.0029 (single seed, single k-means fit; no CIs).",
+  "tsne": {
+    "perplexity": 35,
+    "n": 2700
+  }
+}

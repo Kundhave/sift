@@ -1,0 +1,114 @@
+{
+  "name": "smoke",
+  "config": {
+    "name": "smoke",
+    "encoder": "answerdotai/ModernBERT-base",
+    "max_len": 512,
+    "micro_bs": 8,
+    "accum": 2,
+    "epochs": 2,
+    "lr": 2e-05,
+    "patience": 2,
+    "seed": 473,
+    "input_mode": "full",
+    "intent_source": "consolidated",
+    "ce": false,
+    "no_multitask": false,
+    "rule_filter": false,
+    "drop_file": null,
+    "grad_ckpt": true,
+    "subset": 160,
+    "cpu": false,
+    "log_every": 5,
+    "teacher_logits": null,
+    "tau": 4.0,
+    "alpha": 0.5,
+    "dump_train_logits": false,
+    "n_train_raw": 12600,
+    "n_train_used": 12600,
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "torch": "2.14.1+cu126",
+    "params": 149018117,
+    "effective_batch": 16,
+    "n_val": 160,
+    "n_test": 160
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.39558936916291715,
+      "val_macro_f1": 0.5207729468599034,
+      "val_threshold": 0.45,
+      "elapsed_s": 5.540760517120361
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.31205460615456104,
+      "val_macro_f1": 0.5032723611344185,
+      "val_threshold": 0.35000000000000003,
+      "elapsed_s": 10.983485698699951
+    }
+  ],
+  "best_val_macro_f1": 0.5207729468599034,
+  "train_time_s": 13.464404106140137,
+  "peak_gpu_mem_gb": 3.090508288,
+  "test": {
+    "accuracy": 0.63125,
+    "macro_f1": 0.5274092615769712,
+    "f1_aligned": 0.7489361702127659,
+    "f1_misaligned": 0.3058823529411765,
+    "precision": 0.2708333333333333,
+    "recall": 0.35135135135135137,
+    "specificity": 0.7154471544715447,
+    "tn": 88,
+    "fp": 35,
+    "fn": 24,
+    "tp": 13,
+    "threshold": 0.45,
+    "ndcg@5": 0.8154648767857289,
+    "p@1": 0.5,
+    "mrr": 0.75,
+    "n_rankable_sessions": 2,
+    "pairwise_auc": {
+      "random": {
+        "auc": 1.0,
+        "pairs": 1
+      },
+      "hard": {
+        "auc": 0.0,
+        "pairs": 1
+      }
+    },
+    "ece": 0.19050878752022982
+  },
+  "val": {
+    "accuracy": 0.6125,
+    "macro_f1": 0.5207729468599034,
+    "f1_aligned": 0.7304347826086957,
+    "f1_misaligned": 0.3111111111111111,
+    "precision": 0.30434782608695654,
+    "recall": 0.3181818181818182,
+    "specificity": 0.7241379310344828,
+    "tn": 84,
+    "fp": 32,
+    "fn": 30,
+    "tp": 14,
+    "threshold": 0.45,
+    "ndcg@5": 0.9077324383928644,
+    "p@1": 0.75,
+    "mrr": 0.875,
+    "n_rankable_sessions": 4,
+    "pairwise_auc": {
+      "random": {
+        "auc": 0.5,
+        "pairs": 2
+      },
+      "hard": {
+        "auc": 1.0,
+        "pairs": 1
+      }
+    },
+    "ece": 0.1328083707019687
+  }
+}
