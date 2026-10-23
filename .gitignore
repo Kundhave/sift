@@ -23,3 +23,4 @@ refs/*.zip
 artifacts/student_onnx_fp32/
 artifacts/student/*.safetensors
 .env
+refs/Sift-IA-v1_dataset/Sift-IA-v1/data/
