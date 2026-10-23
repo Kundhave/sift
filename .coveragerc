@@ -1,0 +1,6 @@
+[run]
+source = src/sift
+branch = True
+omit = src/sift/train.py
+[report]
+show_missing = False
