@@ -1,0 +1,8 @@
+{
+  "encoder": "answerdotai/ModernBERT-base",
+  "max_len": 512,
+  "temperature": 1.2733892675257013,
+  "threshold": 0.34,
+  "backend": "torch",
+  "source_run": "full"
+}

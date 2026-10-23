@@ -1,0 +1,8 @@
+{
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_len": 512,
+  "temperature": 1.6852809792864707,
+  "threshold": 0.39,
+  "backend": "torch",
+  "source_run": "student"
+}

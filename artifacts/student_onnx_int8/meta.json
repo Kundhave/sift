@@ -1,0 +1,14 @@
+{
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_len": 512,
+  "temperature": 1.695444747730695,
+  "threshold": 0.39,
+  "backend": "onnx",
+  "source_run": "student",
+  "onnx_file": "model.onnx",
+  "threads": 4,
+  "verified": {
+    "test_macro_f1": 0.6670161286157692,
+    "size_mb": 22.893203
+  }
+}

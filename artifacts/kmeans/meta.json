@@ -1,0 +1,7 @@
+{
+  "source": "artifacts/full pooled [CLS]",
+  "n_fit": 4000,
+  "seed": 473,
+  "k": 4,
+  "dim": 768
+}
