@@ -1,0 +1,1984 @@
+      Test and Evaluation of
+   Artificial Intelligence Models
+
+
+What to Consider in a Test & Evaluation Strategy
+
+                                                   April 2024
+
+
+
+
+               Cleared for Public Release
+Table of Contents
+   Thinking about
+     Performance
+       pages 7 - 17
+                           01
+                                Thinking about
+                                Testing Methods
+                                pages 18 - 28
+                      02
+   Thinking about
+             Data
+      pages 29 - 39
+                           03
+                                Thinking about
+                                AI Models
+                      04        pages 40 - 54
+
+   Thinking about
+          Context
+      pages 55 - 57
+                           05
+                                Thinking about
+                                Documentation
+                      06        pages 58 - 63
+
+
+
+                                                 Page 1
+T&E Strategies
+for AIECs
+
+
+                                                                         00
+This Section:
++ Specifies the role of the current document within the larger
+  framework.
++ Provides an overview of the framework for the test and evaluation of
+  AI-enabled capabilities produced by CDAO Assess and Assurance.
+
+
+
+
+                                                                          Page 2
+This document is part of a framework for the
+T&E of AI-enabled capabilities
+CDAO Assessment and Assurance is creating a framework to provide guidance on how
+to test and evaluate (T&E) AI-enabled capabilities (AIECs).
+
+
+
+    What is the framework?                      Why is it needed?                    What is this document?
+
+The T&E of AIEC Framework provides      The DoD community for the T&E of        This document discusses the test and
+best practices and guidance on how to   AIEC comes from a variety of            evaluation of AI models, both
+test and evaluate AIEC.                 backgrounds.                            standalone and integrated into system-
+                                                                                of-systems, in a Defense context.
+The framework is organized into four    The T&E of AIEC Framework promotes
+categories of testing and provides      a shared understanding between AIEC     It is intended to help AIEC developers
+different types of resources to AIEC    experts new to T&E and to T&E experts   and working-level testers incorporate
+developers and working-level testers.   new to AIEC.                            operational     realism   into  testing
+                                                                                throughout an AIEC’s lifecycle.
+
+
+
+          This document provides:                                This document does NOT provide:
+
+       Guidance and best practices                                  Binding policy and requirements
+
+       A primer on T&E of AI models                                 A comprehensive AI Model T&E guide
+
+       Strategy-level T&E considerations                            Detailed T&E implementation
+
+       T&E at the algorithm level                                   T&E at the system-of-systems level
+
+
+
+
+                                                                                                              Page 3
+  CDAO’s T&E of AIEC framework is organized
+  into four focus areas
+  While these T&E focus areas help break critical aspects of T&E into digestible pieces,
+  they are neither mutually exclusive nor cleanly delineated in real testing.
+
+           Operational T&E (OT&E)
+           Evaluating an AIEC performing representative
+           missions within an operationally realistic
+           environment against a realistic adversary.
+
+           Human Systems Integration (HSI) T&E
+           Evaluating an AIEC’s ability to help stakeholders
+           observe and orient to their environment, make
+           informed decisions, and carry out their missions.
+
+           Systems Integration (SI) T&E
+           Evaluating an AI component within its larger
+           system to ensure that the AIEC functions as a
+           holistic unit and identify its limitations and risks.
+
+           AI Model T&E
+           Evaluating and documenting AI models and data
+           across performance dimensions informed by
+           system and mission constraints.
+
+
+
+This document covers the AI Model T&E focus area
+
+
+                                                                                     Page 4
+CDAO is developing a series of products that
+address critical T&E needs
+Part 1 is designed to help testers understand core T&E concepts so that working-level
+testers can write and assess test and evaluation strategies for AI-enabled capabilities
+
+
+
+
+This              1 | Write and            2 | Write and             3 | Engage with          4 | Execute tests
+document          assess T&E               assess Detailed           other DoD T&E            and rigorously
+                  Strategies               Test Plans                stakeholders             analyze results
+focuses on
+Part 1            Provides a high-level    Provides guidance for     Provides frameworks      Provides resources
+                  overview of critical     implementation of T&E     outlining how T&E is     such as templates,
+                  T&E concepts that will   concepts introduced in    critical to fielding     validated
+                  be influenced by the     Part 1; highlights        trustworthy AIECs        measurement
+                  inclusion of AI models   promising paths           across DoD acquisition   instruments, and
+                  in the system under      forward for unsolved      pathways and mission     automated analysis
+                  test.                    challenges.               applications.            tools.
+
+                  Supports testers and     Supports testers and      Supports testers and     Supports testers and
+                  developers as they       developers as they        developers as they       developers by
+                  write TESs and assess    develop and               advocate for policy      streamlining and
+                  whether the TES is       implement detailed        and investments that     automating common
+                  committed to the right   test plans that capture   address DoD T&E          T&E activities with
+                  evaluations.             mission objectives.       shortcomings.            tailorable tools.
+
+                                                                                                           Page 5
+What is a Test & Evaluation Strategy?
+A high-level document in DoD acquisitions
+that guides test planning and execution.
+
+         Captures the mission(s) a capability is
+         intended to perform and all hardware and
+         interfacing systems in the test design.
+
+
+
+         Identifies and prioritizes assessment areas to
+         inform test team data requirements to support
+         major program decisions.
+
+
+
+         Specifies the resources required to conduct
+         T&E and shortfalls in resourcing that will
+         require investments.
+
+
+
+         Describes the test events and activities
+         necessary to evaluate the system and support
+         acquisition, technical, and program decisions.
+
+
+
+                           Learn More
+                           You can read more about DoD TESs at
+                           https://www.test-evaluation.osd.mil/T-E-Enterprise-Guidebook/   Page 6
+Thinking about
+Performance
+
+
+                                                               01
+This Section:
++ Describes the multiple dimensions of performance
++ Outlines how performance varies based on the AI model type
++ Describes common aspects and measures of performance
+
+
+
+
+                                                                Page 7
+The Performance Iceberg
+Correctness is just the tip of the iceberg when it comes to rigorously and robustly
+evaluating the performance of your AI model
+
+Testing an AI model is vital for its quality, reliability, and
+                                                                       Correctness
+usefulness. But ensuring testing is sufficiently robust is
+not simple, as many subtle aspects of performance
+require evaluation and validation. Correctness, the most
+visible and intuitive metric, shows how well a model
+achieves its functional performance goals. But
+correctness measurement alone is not enough for
+rigorous and robust performance evaluation.
+
+
+There are many other aspects that are hidden below the             Bias                            Drift
+water line, but they are vital for ensuring the quality and
+reliability of the model. These aspects include how the
+model handles different sources of error, such as bias
+and drift, how the model explains its output and                 Resilience
+                                                                                           Robustness
+reasoning, such as explainability and uncertainty, how
+the model responds to different situations and inputs,
+such as latency and robustness, and how the model
+represents the real-world problem and data, such as               Uncertainty
+representativeness and resilience. These aspects are                                       Explainability
+often interrelated and complex, and they need to be
+carefully considered and evaluated when testing an AI
+model. Testing an AI model is not a simple task, but a
+                                                                 Representativeness
+comprehensive and effective one.                                                      Latency
+
+
+
+                                                                                                Page 8
+Measuring Correctness
+Correctness is the ability of a predictive model to fulfill its
+functional performance goals. Correctness (accuracy, precision,
+and/or recall) is frequently a main focus of model developers.
+
+
+
+     How do you measure it?                     Why should you measure it?
+
+Correctness metrics vary by algorithm        Correctness on the intended task is
+type. When available, correctness            typically the primary consideration for a
+relates prediction results to ground         model developer. Without a sufficient
+truth. When not available, other             level of correctness, none of the other
+comparisons are needed. Common               measures given here matter.
+metrics include:
+                                             Correctness is the measure of how well
+ Classifiers: Accuracy, Precision,          a model predicts the correct or
+  Recall, F1 score                           expected output for a given input. It is a
+                                             basic and intuitive metric for assessing            What should you ask?
+ Regression: mean squared error, R2
+                                             the model’s performance on its
+ Unsupervised and generative                intended task.                                ? What is the expected output of the
+  models: often rely on human                                                                model for a given input?
+  evaluators                                 Correctness is important for identifying
+                                             and improving the model’s weaknesses          ? Does the developers’ functional
+ Reinforcement learning systems: a          and limitations. It helps to diagnose the       performance metric align with what
+  combination of simulator scores and        sources of errors, such as data quality,        matters most in operations?
+  human evaluation                           algorithm design, or others.                  ? Can the model achieve its
+For classifier models, “Accuracy” is         Correctness is useful for comparing             correctness targets?
+defined:                                     different models or model versions.           ? How robust is the model under
+                                                                                             different conditions and scenarios?
+
+                    Similar
+                                  functional performance, prediction accuracy, goodness of fit                           Page 9
+                    Terms
+Measuring Interpretability
+                                                                                                         xkcd.com
+Interpretability methods provide insight into how a model produced
+its output. These methods generally do not provide insight into the
+underlying data generating process that the model was trained on,
+but greater interpretability facilitates understanding the model’s
+inner workings.
+
+
+     How do you measure it?                     Why should you measure it?
+
+Intrinsic and/or Post-hoc? Intrinsic          Detect bias – interpretable models can
+methods restrict the complexity of the        be checked for protected groups or
+model, while post-hoc methods analyze         their correlates in training data.
+a trained model.
+                                              Auditable – interpretable models can
+Local or Global? Does the                     be examined for purposes of debugging
+interpretation method explain an              or suggesting theories for further
+individual prediction or the entire model     testing.
+behavior?
+                                              User acceptance – humans rely on                  What should you ask?
+Model-Specific or Model-Agnostic?             explanations to develop trust.
+Model specific methods can be faster,         Interpretable models can provide useful
+                                                                                          ? Who needs to interpret the model?
+but model-agnostic methods work with          explanations.
+more model types.                                                                         ? How will the interpretability
+                                              Education – can help users and
+                                                                                            measures be presented?
+Textual explanations: This method             students learn from the model and
+generates natural language                    know when to use the model, or not.         ? How will the interpretation be used?
+descriptions that explain the model’s
+                                              Adaptation – interpretable models can       ? What issues might confound the
+output for a given input.
+                                              help users and developers adapt the           provided explanations?
+Decision trees: This method converts a        model to changing needs, preferences,       ? How does user feedback get
+trained model to show the rules behind        or environments.                              incorporated into the model’s
+the model’s predictions.
+                                                                                            interpretability?
+
+                     Similar       explainability, SHAP (SHapley Additive exPlanations), mechanistic
+                     Terms         interpretability, transparency, decision boundary                                        Page 10
+Measuring Bias
+                                                                                                                xkcd.com
+“Bias” can mean any of several different concepts when applied to
+AI, including but not limited to: discriminatory or unfair treatment
+(legal/fairness), underrepresented elements in the data
+(representation), and differences in average outputs from the true
+mean (statistical).
+
+
+     How do you measure it?                        Why should you measure it?
+
+There are too many concepts of bias to          Models may exhibit good overall
+comprehensively list and define here.           performance but still have unintended
+Some types of bias can be measured              bias that may result in harm. Fairness
+directly if ground truth is available, but      bias can result in harm to individuals
+Others must be inferred. Some cannot            and groups – a violation of the DoD
+be simultaneously minimized.                    Ethical AI Principles. Representation
+Fairness bias often relates to                  bias can diminish operational
+correlations in the data; the chosen            effectiveness and suitability, and lead
+definition of fairness will inform              to fairness bias.                                      What should you ask?
+measurement. Representation bias can            Unintended bias can lead to negative
+occur when there is selection into the          consequences, particularly for some             ? What bias is intentional?
+training sample, so measurement can             subpopulation such as minorities,               ? How does the intentional bias tie to
+be facilitated by distributional                specific genders, professional groups,            mission objectives and
+measurements. Ground truth is often             or other underrepresented ones. E.g.,             performance?
+not available, so statistical bias often
+                                                 Model outputs that systematically             ? What undesirable biases might be
+must be inferred from prediction error.
+                                                  vary across groups                              reflected in your data and amplified
+Teams should involve stakeholders to             Disparate treatment                             by the model?
+identify and create strategies for
+measurement and mitigation, when                 Social or economic harm                       ? What fairness metrics best align with
+appropriate.                                     Loss of trust                                   your mission objectives?
+
+                     Similar        Selection bias, representation bias, statistical bias, algorithmic bias, fairness,
+                     Terms          disparate treatment                                                                       Page 11
+Measuring Robustness
+Robustness describes how well a model performs outside of
+conditions on which it was trained. Robustness is typically
+categorized into two areas: natural (natural variations in input
+data) and adversarial (perturbations caused by malicious attacks).
+
+
+     How do you measure it?                      Why should you measure it?
+
+In evaluating robustness, testers should      AI models can perform unpredictably
+consider both the smoothness of the           when deployed outside of the
+performance surface and the                   conditions in which they were trained
+performance in specific situations            due to emergent model behaviors and
+relative to other models.                     a failure to generalize in ways that
+Natural robustness is evaluated               conform to human expectations.
+through variation in evaluation data.         A lack of robustness can lead to
+This can be done by using different           undesirable or harmful consequences
+datasets or data sources that reflect the     for users, stakeholders, or society at                    What should you ask?
+diversity and complexity of the real-         large, such as loss of trust, privacy
+world data. Metrics should capture how        breaches, discrimination, or physical            ? How does the model handle errors
+much the model performance degrades           harm.                                              or failures and recover from them?
+under different levels of variation.
+                                              By measuring robustness, testers can             ? What threats or attacks might the
+Adversarial robustness is evaluated via       identify and mitigate potential risks and          model face from adversaries?
+manual or automated red teaming. Red          vulnerabilities of AI models before they         ? How does the model handle red
+teaming simulates attacks by an               are deployed in real-world settings.               team attempts to confuse it?
+adversary who has some knowledge
+                                              Measuring robustness can lead to                 ? How does the model adapt to
+and access to the model. Metrics
+                                              design decisions to enhance system                 changes over time?
+should capture how often the model is
+                                              quality and reliability, as well as better
+compromised by adversarial inputs.
+                                              user experience.
+
+                    Similar
+                                  brittleness, adversarial resistance, overfitting, transfer learning                       Page 12
+                    Terms
+Measuring Resilience
+Resilience describes how well a model recovers to desired
+performance from a performance-degrading event such as a
+failure. Resilience is reactive, while robustness is proactive.
+
+
+
+     How do you measure it?                       Why should you measure it?
+
+Testing for lingering effects of stress         Resilience is a crucial aspect of the
+and perturbations may give insights into        system’s reliability, usability, and
+model resilience                                trustworthiness.
+Testers should consider the following:          Measuring resilience can help identify
+• The frequency and severity of                 and improve the system’s weaknesses.
+  disruptions that may be encountered           The distinction between robustness
+• The time and resources required for           and resilience is clearer when dealing
+  the system to recover and resume              with dynamic models, such as                     What should you ask?
+  normal operation.                             autoregressive models. With a dynamic
+                                                model, future output depends on the
+• The impact of disruptions on system                                                      ? Is the model dynamic?
+                                                history of inputs and outputs, so errors
+  performance such as accuracy,                 propagate forward in time.                 ? How will testing measure lagged and
+  reliability, safety, or user satisfaction.                                                 lingering effects?
+                                                A contemporaneous perturbation may
+• The mechanisms employed to cope               result in poor performance right now       ? Can the model identify mistakes and
+  with disruptions such as error                (robustness issue) but also continued        self-correct?
+  detection, compensation, or learning.         poor performance after the perturbation    ? How does the model handle errors
+A resilience curve will plot the system         has passed (resilience issue).               or failures and recover from them?
+performance over time under different
+scenarios of disruptions or failures.
+
+
+                      Similar
+                                     autoregressive, recovery time                                                     Page 13
+                      Terms
+Measuring Uncertainty
+                                                                                                          xkcd.com
+Uncertainty refers to the level of confidence users should have in
+the outputs of a model. There are many sources of uncertainty,
+including natural random variation, a lack of training data, and
+others.
+
+
+    How do you measure it?                     Why should you measure it?
+
+There are many types and sources of         To improve the performance, reliability,
+uncertainty, including aleatoric            and interpretability of the model by
+(inherent randomness), epistemic            providing a measure of confidence or
+(ignorance regarding what we know),         error for predictions. This helps users
+and approximation (how well the             or stakeholders to trust and use the
+chosen model approximates reality).         model predictions more appropriately.
+Many uncertainty quantification             To identify sources and types of
+methods exist, and the best choice will     uncertainty affecting the model, such as
+depend on the task, modeling                natural variation, lack of training data,            What should you ask?
+framework, and your assumptions             model complexity, or adversarial
+about the use case. Common methods          attacks.                                      ? How certain do we need to be of a
+include subsampling, analytic                                                               model’s predictions?
+                                            To reveal the regions of high or low
+approaches, Monte Carlo simulation,
+                                            uncertainty in the input or output space.     ? Will the model be used in a context
+and ensembling.
+                                            This helps testers or developers                that was rare in the training data?
+One should ensure the validity of the       evaluate the model’s generalization           ? How does uncertainty vary across
+chosen uncertainty quantification           ability and reliability and prioritize the      subpopulations?
+method by assessing agreement with          areas needing more attention or data.
+the true uncertainty.                                                                     ? Is the estimated uncertainty properly
+                                                                                            calibrated?
+
+
+
+                    Similar      Epistemic uncertainty, aleatoric uncertainty, confidence intervals, Bayesian
+                    Terms        inference, stochastic processes, Monte Carlo methods, outlier detection               Page 14
+Measuring Drift
+Drift is the change of model performance over time due to changes
+in its environment. Drift can apply to the data, the model, or the
+context/concept underlying the model use case.
+
+
+
+     How do you measure it?                        Why should you measure it?
+
+Model performance should be tracked             There are various types of drift that
+with updated data, and changes in               affect AI models: drift may occur when
+performance should be investigated.             the distribution of inputs or outputs
+Assessing data distribution changes             change over time or when the
+over time can reveal sources of drift.          relationship between inputs and
+                                                outputs changes. Careful modeling can
+To measure data drift, use feature-             account for some kinds of data drift
+based methods to compare the                    during development, but the source of
+statistical properties of the features in       drift is often not known or observed. All               What should you ask?
+the training and production data.               drift symptomatically manifests as
+To measure model drift, one can use             change in performance (typically                 ? How can the model monitor or report
+output-based methods to compare the             degradation) over time.                            data, concept, and model drift?
+predictions of the model on the training        Monitoring for changes in performance            ? How will updates correct for the
+and production data.                            and changes in the data can prompt the             effects of drift?
+To measure concept drift, compare the           need to retrain the model, collect more
+                                                data, update procedures associated               ? How can the model be updated,
+performance of the model on the
+                                                with data collection or use of the model,          retrained, or revalidated for drift?
+training and production data. Such
+comparisons can capture changes in              or investigate other sources of                  ? What is the desired data distribution
+the predictive power, sensitivity, and          degradations more closely.                         under expected conditions?
+more.
+
+                      Similar       Concept drift, context drift, data drift, model drift, model decay, online
+                      Terms         learning, streaming data, non-stationarity, model monitoring                                Page 15
+Measuring Representativeness
+Data used for model training must be sufficiently representative of
+the real operational environment in which the model will be
+deployed. Model performance depends on the training data.
+
+
+
+     How do you measure it?                    Why should you measure it?
+
+Training data, testing data, & validation    To reduce the risks of overfitting,
+data should all be representative of the     underfitting, or bias in the model.
+operational environment, and the model
+                                             To evaluate the model performance
+architecture should be sufficient to
+                                             and characterize how it will generalize.
+capture salient operational features.
+                                             To identify and improve data quality
+Test data & validation data should be
+                                             and quantity issues and the
+different from training data.
+                                             architecture of the model.
+Typical measures will show the degree                                                          What should you ask?
+                                             To help ensure that the model meets
+of similarity between the planned
+                                             user expectations, needs, and
+dataset and the salient features of the
+                                             preferences in the real operational         ? What variables define
+operational context. Example measures
+                                             environment.                                  representativeness for the
+may include: data similarity, data
+                                                                                           operational context?
+diversity, data coverage, data currency,     Representative training data that aligns
+and data volume.                             with “real” operational data in all         ? Are those variables captured in an
+                                             significant aspects is vital to achieving     operationally relevant way?
+Similarity and sufficiency must normally
+                                             desired model behavior.
+be defined by subject matter experts in                                                  ? What is the fidelity of the data with
+the operational context.                     Worthwhile testing critically depends on      respect to actual operations?
+                                             the test data being representative of
+                                                                                         ? Does the operational context and
+                                             real operational data.
+                                                                                           associated data change over time?
+
+                    Similar
+                                  Class imbalance, sampling bias, dataset diversity                                     Page 16
+                    Terms
+Measuring Latency
+Production AI models must operate at a speed sufficient for their
+users. Latency can depend on model complexity, input data size,
+hardware performance, and other factors.
+
+
+
+     How do you measure it?                   Why should you measure it?
+
+Latency is measured by timing               In many applications like real-time
+responses of the model.                     analytics or autonomous navigation,
+Latency must be measured in an way          latency constrains usability.
+representative of the operational           Latency also affects the smoothness of
+environment to be meaningful.               the user experience even in less time
+Profiling tools can measure the time        sensitive applications.
+taken by model components to help           Running a machine learning model in
+identify the bottlenecks.                   production may incur high costs due to             What should you ask?
+Benchmarking tools measure the              the use of cloud computing, storage, or
+latency of the model on different           bandwidth. Measuring latency can help
+                                                                                        ? Does the model operate at a speed
+hardware platforms, such as CPUs,           select the most efficient and cost-
+                                                                                          sufficient for its intended operation?
+GPUs, TPUs, etc. This can help              effective platform and configuration for
+                                            deployment.                                 ? Is there significant worst-case
+compare the trade-offs between speed
+                                                                                          variance in the latency?
+and accuracy, and choose the best           To troubleshoot the model’s behavior in
+platform for deployment.                    real-time. Measuring latency can help       ? Are there bottlenecks that could be
+                                            detect and diagnose problems due to           addressed to boost inference
+Load testing tools measure latency
+                                            drift, system failures, or performance        speed?
+under different levels of demand or
+request frequency or size.                  degradation and take appropriate            ? How will latency be measured in
+                                            corrective actions.                           production?
+
+                    Similar      inference speed, latency, network latency, throughput, edge computing,
+                    Terms        response time                                                                         Page 17
+Thinking about
+Testing Methods
+
+
+                                                02
+This Section:
++ Outlines types of tests unique to AI
++ Presents ideas on test design for AI models
++ Discusses balancing test implementations
+
+
+
+
+                                                 Page 18
+   Test   Test design & test type selection will be
+
+ Types,
+          informed by both the data and the model.
+
+
+Designs
+          Section 1, Thinking about Performance,     Test implementations must be balanced
+          introduced some considerations about       between the strengths and limitations of
+          the performance of an AI model for DoD     test methods.
+          applications and ways to measure its
+
+
+
+      &
+          performance. With those considerations     Testers must account for priorities and
+          in hand, this section will introduce       available resources when selecting from
+          considerations for fleshing out the test   the appropriate test types and test design
+          strategy into an implementable plan.       approaches. Though some methods
+
+
+Methods
+                                                     used in test planning require adaptation
+                                                     or invention, many of the techniques in
+                                                     testers’ toolboxes will continue to be
+                                                     relevant for AI models and systems.
+
+
+
+
+                                                                                    Page 19
+Test Types for Comparisons
+There are various test types for testing model performance. The types shown here differ
+in how the model is compared and how data are used.
+
+
+
+          Pairwise Testing                                 A/B Testing                            Back-to-back Testing
+
+Pairwise testing is a technique where         A/B testing is a method where the             Back-to-back testing, also known as
+test cases are generated such that all        response of two variants of the program       differential testing, is related to A/B
+possible combinations of any two              (A and B) to the same inputs are              testing, but rather than comparing two
+variables (or parameters) are covered         compared to determine which of the            variants of the same model, the model
+at least once.        The goal is to          two variants is better. It is a statistical   under test is compared with a different
+significantly reduce the number of test       testing approach which typically              model.
+cases while still capturing most of the       requires the comparison of test results
+                                                                                            The goal of back-to-back testing is
+defects that would have been found            from several test to determine the
+                                                                                            usually    to    identify defects   by
+using exhaustive testing. In machine          difference between the programs.
+                                                                                            contrasting performance of the two
+learning, examples include varying
+                                              A/B testing is common when comparing          models. The second model could be in
+pairs of hyperparameters* to avoid
+                                              a new variant of a model in production.       an existing system that is being
+exhaustive grid search or testing the
+                                              As an example, 50% of a website’s             considered for replacement or it could
+interaction between pairs of features.
+                                              users might see content recommended           be a model that is used solely for
+Pairwise testing does have limits.
+                                              by the current production model, while        testing because it lacks properties
+In more complex models, analyzing             the other half see recommendations            necessary for production use, e.g. it
+every pair of parameters can be               from a new variant. If tests of the new       runs too slowly.
+computationally costly, requiring either      model show improvement, the model is
+statistical sampling or testing pairs at a    swapped in, otherwise the system
+higher level of abstraction that              keeps its current state.
+compromises on rigorous definition.
+
+                             Hyperparameters
+                             Top-level parameters whose values control the learning process. E.g., train-test
+                             split, learning rate, activation function, or hidden layers.                                Page 20
+Test Types for Adversarial Threats
+AI models may or may not be secure against malicious attacks that aim to manipulate
+their inputs, outputs, or behaviors.
+
+
+
+       Adversarial Testing                            Red Teaming                           Manning a Red Team
+
+Adversarial testing is a technique that   A red team is a group of testers that       A red team can be internal or external
+uses adversarial methods to identify      uses adversarial methods to probe a         professionals,    or     crowd-sourced
+and address the vulnerabilities of a      model and explore its attack surface,       testers, depending on availability,
+model, making it more resilient and       which can be large and unwieldy for         expertise, and budget. Crowd-sourcing
+trustworthy.                              some models. Red teaming can reveal         can provide a larger and more diverse
+                                          unexpected model behavior, coverage         pool of testers, but it may also pose
+One type of adversarial method is
+                                          gaps in the data, gaps in procedure,        challenges in quality, security, and
+adversarial attack, where an attacker
+                                          security vulnerabilities, other points of   ethics.
+subtly perturbs valid inputs that are
+                                          stress in the model, and evaluate the
+passed to the trained model to cause it                                               Red teaming can be costly for complex
+                                          effectiveness of current defenses. It is
+to provide incorrect predictions. For                                                 and large models, but some ways to
+                                          appropriate during all stages of the
+example, to defeat spam filtering a red                                               reduce cost and increase efficiency are
+                                          lifecycle, including deployment.
+team might slightly change an email’s                                                 red teaming events, such as DEF CON,
+wording to avoid classification as spam   Red teaming is most often used to           where experts can congregate and
+while remaining readable to the           emulate potential adversarial attacks       contribute, network, learn, and give
+intended audience. Another type of        and is associated with cyber testing,       feedback.
+adversarial method is data poisoning,     testing the code, and testing the
+                                                                                      Policies and procedures are needed to
+where an attacker manipulates the         statistical soundness of the model, but
+                                                                                      ensure safe and effective red teaming,
+training data to cause the model to       other aspects of the model can be red
+                                                                                      grade efforts and results, and capture
+behave incorrectly.                       teamed as well. For example, data
+                                                                                      feedback.
+                                          curation policies, monitoring and
+                                          feedback loops, auditing mechanisms,
+                                          and guardrails for proper use can all be
+                                          red teamed.
+                                                                                                                   Page 21
+Test Types
+In cases where the expected outcomes of a model are less well understood, these test
+types may contribute to the overall characterization of the model.
+
+
+
+   Experience-Based Testing                                               Metamorphic Testing
+
+Experience-based testing refers to the      Metamorphic testing is a software testing technique that's especially useful when you
+practice of leveraging the skills,          have a system where it's hard to know the "correct" output for a given input, which is
+knowledge, intuition, and expertise of      often the case with machine learning models. Unlike traditional testing methods,
+testers to identify potential issues in a   which compare the output to a known "correct" answer, metamorphic testing focuses
+software system. Error guessing is          on the relationships between inputs and outputs.
+typically based on testers subject
+                                            The first step is to identify properties or rules that the output should satisfy when the
+matter knowledge, typical developer
+                                            input is changed in specific ways. These are called metamorphic relations (MR).
+errors, and failures in similar systems.
+                                            Next, for a given input the model's output is observed. Then, the input is transformed
+An example could be the use of
+                                            according to the established MRs, and the model is re-run. The outputs are then
+knowledge about how ML systems
+                                            checked to see if they maintain the metamorphic relations. For example:
+have failed in the past from a database
+like the AI Incident Database.              • For speech-to-text, slight changes in playback speed should not change the
+Experience-based testing is limited for       output.
+scalability and is inherently subjective.   • For clustering, adding a point at the centroid of each identified cluster should not
+This method might miss issues that            change the number of clusters or any existing point's assignment, and should
+could be captured through more                assign each new point to the cluster that generated it.
+systematic testing approaches.
+
+
+
+
+                                                                                                                          Page 22
+Test Design
+Test design focuses on selecting specific data points for analysis, enabling you to draw
+conclusions or make inferences about a larger population or phenomena.
+
+Traditional test design allocates design    Common factor selection methods
+points in a way that captures maximum
+                                           • SMEs provide valuable insights from
+variation in the data for testing. This
+                                             a domain-specific perspective.
+often assumes a smooth response
+surface, not present in many AI            • Automated       screening     applies
+systems.                                     automated tools to identify potential
+                                             issues with the model such as
+AI systems may exhibit non-smooth
+                                             overfitting, underfitting, and data
+responses, especially near edge cases
+                                             leakage      and     helps    ensure
+and low density areas of the training
+                                             comprehensiveness and rigor.
+space. Testers should ensure that
+those areas are not omitted from
+testing and may wish to prioritize those      Common test design methods
+areas for testing in some situations.
+Model testing should emphasize             • Cross-validation:            evaluate
+regions of low density coverage in the       performance across k smaller sets
+training data.                               (or folds) of the data, then average
+                                             the results
+                                           • Holdout validation: separate the
+     Factor Selection                        data into training, test, and validation
+                                             sets
+     The process of identifying the
+                                           • Bootstrapping: generate multiple
+     factors that are most important to
+                                             training datasets by resampling the
+     the model’s performance and
+                                             data with replacement. Train on the
+     ensuring they are included in the
+                                             multiple training datasets, then
+     test design and test data
+                                             evaluate on the original dataset
+
+                                                                                        Page 23
+Testing paradigms: beyond either/or
+Synthesize across testing paradigms to strike the right balance.
+
+
+
+
+Many testing paradigms are often     Reality is typically far more gray,     Testing        professionals     should
+framed as extremes or an either/or   and well balanced solutions will        educate       themselves      on    the
+– often pitting automated testing    likely leverage a combination of test   strengths and limitations of different
+solutions against processes with     implementations.                        testing paradigms and choose the
+ongoing human input.                                                         best fit for their context and goals.
+
+
+
+
+                                                                                                          Page 24
+Balancing Test Implementations
+
+            Continuous                                                  Discrete
+             Testing                                                   Test Events
+
+
+
+Tests occur at regular intervals or at model updates
+                                                       Tests occur at specified points in time
+or other triggering events
+
+
+
+
+                                                       Often easier to schedule and resource, can be
+Follows pace of development, changes in model
+                                                       larger in scope because computational resources
+over time are observed
+                                                       are prioritized for testing
+
+
+
+
+Can add complexity to scheduling and resourcing,
+often less extensive due to computational              Can be out of sync with developer pace
+constraints
+
+
+
+
+                                                                                                 Page 25
+Balancing Test Implementations
+
+              Automatic                                                    Manual
+               Testing                                                     Testing
+
+
+
+Tests specified in code and run at set intervals or
+                                                      Tests conducted by an expert
+every model update
+
+
+
+
+Cheap to run once tests are developed, fast, good
+for catching regressions, thorough, and good for      Handles complex tests difficult to specify in code
+testing predefined logic cases
+
+
+
+
+Adds to code maintenance burden, difficult to
+                                                      Expensive in long run, slow, can be less thorough
+automate complex evaluations
+
+
+
+
+                                                                                                  Page 26
+Balancing Test Implementations
+
+             Black Box                                                  White Box
+              Testing                                                    Testing
+
+
+
+                                                      Tests that require knowledge of the internal
+Tests that focus on feeding inputs to the model and
+                                                      structure of a model, such as its parameter weights
+evaluating its outputs
+                                                      and training data
+
+
+
+
+Requires less privileged access, not dependent on     Can be more interpretable, some adversarial
+model architecture                                    techniques require internal access
+
+
+
+
+                                                      Can be difficult to negotiate access to sensitive
+Can be computationally expensive, difficult to
+                                                      intellectual property, some techniques limited to
+interpret results
+                                                      particular model architectures
+
+
+
+
+                                                                                                  Page 27
+Balancing Test Implementations
+
+               Live Test                                               Model &
+                Events                                                Simulation
+
+
+
+                                                     Tests occur in silico (i.e., experimentation
+Tests occur in environment as close to operational
+                                                     performed by computer) using data from model or
+one as possible
+                                                     simulator.
+
+
+
+
+More operationally realistic                         Highly scalable, can be quickly modified
+
+
+
+
+                                                     Might have significant differences from deployed
+Expensive, infrequent, modification harder
+                                                     environment
+
+
+
+
+                                                                                                Page 28
+Thinking about
+Data
+
+
+                                                            03
+This Section:
++ Describes data as the foundation of AI models
++ Explains how data affects model performance and testing
++ Provides key considerations tied to the data lifecycle
++ Provides details on common data sources and data types
+
+
+
+
+                                                             Page 29
+Thinking about Data
+Data influences model performance and can introduce testing challenges
+
+
+Machine learning turns the programming paradigm on its        Data is the foundation upon which AI models are built, and
+head. Traditional programming specifies some desired          any shortcomings can result in poor model performance. This
+process a system should follow or an output it should         paradigm shift introduces new and increased risks compared
+produce. With AI models, however, the system learns from      to traditional software that should be captured via testing.
+examples rather than explicit instructions.
+                                                              The rest of the ‘Thinking about Data’ section covers:
+
+                 Traditional Paradigm                                          The Data Lifecycle
+                                                                               Select, clean, engineer, split, curate, and
+    Input data                                                                 verify & validate
+                        System           Output data
+     Program
+                                                                               Common Data Sources
+                                                                               Commercial, laboratory, manually collected,
+                 Learning Paradigm                                             model output, open source, synthetic
+
+
+    Input data
+                        System             Program                             Common Data Types
+   Output data                                                                 Audio, image, text, video, tabular
+
+
+
+                   Learn More
+                   NIST’s AI Risk Management Framework and CDAO’s National AI Infrastructure T&E Capability
+                   (NAITIC) Gap study discuss additional differences between software and AI models.                  Page 30
+Assuring data quality across its lifecycle
+Testers must ensure that data are complete, diverse, and realistic, and that the data
+lifecycle steps are documented, validated, and reproducible.
+
+       1 | Select                                   3 | Engineer                                        5 | Curate
+   Identify, locate, and                      Structure data, engineer                            Version and store data,
+acquire needed sources of                      features, and label as                                code, and other
+            data                                    appropriate                                         information
+
+
+
+
+                            2 | Clean                                              4 | Split
+                        Identify and mitigate                            Split the data appropriately
+                      errors, missingness, and                          into subsamples for training,
+                             poor quality                                   testing, and validation
+
+                                                 Verify & Validate
+                              Ensure the integrity, accuracy, and quality of the data
+
+
+                                 Important!
+                                 This process is far from linear! It’s inherently iterative!                     Page 31
+1 | Select & acquire your data
+
+ Data must be related to the use case, be
+ operationally realistic, and have variation.
+
+
+
+
+  How is it relevant to testing?                What are best practices?                   What should testers ask?
+
+Testing real world performance and          You need a lot of data – Data are often    ? What rights does the government
+reliability of the model critically         noisy. Testing requires sufficient           have with respect to the data?
+depends on the operational realism of       coverage of the operational space;
+testing data.                               identification of edge cases and           ? What are the data sources? Is
+                                            exploration of the operational space for     sourcing legal and ethical?
+Bringing operationally realistic data       unexpected behavior may also require
+forward in the development and testing      large amounts of data. Response            ? How can you ensure that the data
+process can be costly, but failing          surfaces of AI models may not be             are complete and operationally
+testing and retraining can be costly, as    smooth, so traditional experimental          realistic?
+well. Synthetic or simulated data can       designs, including DOE, may provide
+help manage this trade-off, but one         insufficient coverage of all possible      ? Think about how the data are
+must carefully consider the fidelity with   values the data could take to capture        generated. Is there relevant
+which the data is generated.                points of failure.                           information that is not observable?
+                                                                                         Does the data contain known bias?
+
+
+
+                                                                                                                    Page 32
+2 | Clean your data
+ Identify and correct or mitigate entry errors;
+ incorrect or corrupted information; incorrectly
+ formatted entries; duplicate, incomplete or
+ missing data; and other quality issues.
+
+
+
+
+  How is it relevant to testing?               What are best practices?                    What should testers ask?
+
+Data are rarely ready to be used out of    Iterate V&V with data cleaning.             ? What does missingness mean to the
+the box. Training data must be                                                           applicability of the data?
+cleaned, and the cleaning steps must       Normalize data tables as needed for
+be validated. Test data should be          curation.                                   ? What are the valid values, have
+appropriately cleaned and validated as                                                   definitions or ontologies changed
+well. These are actions that testers       Document actions. Decisions made              over time?
+should confirm.                            when cleaning data often have
+                                           advantages and drawbacks.                   ? Where is the data incomplete?
+In response to model or data errors        Documentation promotes transparency
+discovered in testing or V&V, additional   and facilitates auditing.                   ? What might affect the operational
+iterations in data cleaning may be                                                       realism of the data?
+required.                                  Do By Code! Use code to clean the
+                                           data and maintain a repository of code      ? Is there evidence of data poisoning?
+Subsequent needs for new data will         that reproduces all cleaning steps to aid
+also drive additional data cleaning.       transparency and reproducibility. Avoid     ? Are the cleaning processes
+                                           manually cleaning data in                     sufficient?
+                                           spreadsheets!
+                                                                                                                    Page 33
+3 | Engineer your data features
+ Feature Engineering transforms raw or cleaned
+ data elements into a format that is useable by
+ the algorithm.
+
+
+
+
+  How is it relevant to testing?              What are best practices?                 What should testers ask?
+
+Raw data sets need to be combined         Do by code! Using code to engineer       ? Are the engineering steps
+into a single data set and transformed    your data and maintaining a repository     appropriate?
+into a format that makes sense for use    of code that reproduces all decisions
+in machine learning. The                  aides in review, auditing, and           ? What are the relevant features for
+transformation steps and resulting data   reproducibility.                           the problem at hand?
+should be V&V’d.
+                                          Decisions made when engineering          ? Is the engineered data appropriately
+Inputs and targets (outputs or reward     features often have advantages and         operationally representative?
+signals), including labeling, must be     drawbacks. Documenting your
+specified. Labeling is often cited as     decisions promotes transparency and      ? Were the data feature engineering
+being a critical, but costly and labor-   facilitates auditing.                      steps verified and validated? And
+intensive part of this process.                                                      documented?
+
+
+
+
+                                                                                                                 Page 34
+4 | Split your data
+ Splitting data refers to partitioning a data set
+ into various subsamples. Recall that AI learns
+ from the data in its training sample. To
+ properly evaluate an AI model, it must be
+ tested on data that it has not learned from.
+
+
+
+
+  How is it relevant to testing?                  What are best practices?                   What should testers ask?
+
+Similar to how a teacher evaluates            Do By Code! Maintaining a repository       ? Are the data cross-sectional, time-
+student learning, providing the answers       of code that reproduces all preparation      series, or panel?
+to a test before taking it does not           decisions aides in review, auditing, and
+                                                                                         ? What variables define
+produce a trustworthy evaluation.             reproducing results.
+                                                                                           representativeness?
+Models should be tested against
+operationally representative data that        Re-Validate! Generally, all sample         ? How to choose the temporal split
+they did not see during training.             splits should be representative. Re-         points? Does the distribution
+                                              validate your subsamples for                 change over time?
+Ensuring reproducibility: By splitting the    operational realism and
+                                                                                         ? How to choose subsample sizes and
+data into training, validation, and testing   representativeness after splitting.
+                                                                                           the number of subsamples? (Should
+sets, we can ensure that our results are
+                                                                                           test set be 10% or 30%, single
+reproducible. Note: terminology differs
+                                                                                           train/test split, k-fold cross validation,
+across fields, a validation split is used
+                                                                                           etc.)
+for hyperparameter optimization – not
+validation of the data!                                                                  ? Could testing data have leaked into
+                                                                                           the training set?
+
+                                                                                                                          Page 35
+5 | Curate
+ Data Curation refers to deliberate, active
+ management of the data over time alongside
+ metadata, documentation, cleaning and
+ engineering code, and V&V and auditing
+ results.
+
+
+
+
+  How is it relevant to testing?                What are best practices?                    What should testers ask?
+
+Curation of the data should be              Proper version control is not just for      ? Who are the stakeholders and
+adequate to facilitate testing, secure      code and models! It can be used for           collaborators across the dataset’s
+enough to guard against adversarial         data and meta data, too.                      lifecycle
+attack and spills and corruption, and
+robust enough to facilitate versioning      Take care in managing data fidelity;        ? Are the data and V&V and other
+and rollback.                               balance the cost of curating                  auditing results adequately
+                                            operationally realistic data with that of     documented in a Data Card?
+Proper curation facilitates transparency,   synthetic data and ensure model
+auditing, and testing.                      performance remains satisfactory.           ? Where and how are the data stored
+                                                                                          and accessed? How is cleaning and
+                                            Evaluate, assess, and audit all curated       engineering code stored?
+                                            information for completeness,
+                                            correctness, transparency and
+                                            usefulness on a deliberate schedule.
+
+
+
+                                                                                                                     Page 36
+* | Verify & validate your data
+
+
+ Verification and Validation ensures the
+ integrity, accuracy, and quality of the data.
+ The data should be secure, operationally
+ representative, and of sufficient quality and
+ quantity to enable machine learning.
+
+
+
+  How is it relevant to testing?                    What are best practices?                       What should testers ask?
+
+The data should be sufficiently                Validation of the data should be on             ? How are low density regions in the
+representative of the real operation for       going rather than just at some fixed              data treated (e.g. edge cases)?
+which the model will be deployed, and          point in the lifecycle.
+the processes supporting and defining                                                          ? How will the data will be stored,
+the data lifecycle should be sufficient to     Data properties, contents, and                    accessed, and used?
+support the use case and capture the           ontologies should be reviewed in light
+salient information regarding                  of changing operational environments            ? How are the data generated - is
+operational outcomes.                          and user feedback.                                there any nuance that might affect its
+                                                                                                 use or impede its ability to
+Each of the previous slides in this            Engage and iterate with data providers,           sufficiently capture salient
+section implicitly describes specific          subject matter experts, domain experts,           information?
+V&V activities relevant to that part of        developers, and end users.
+the lifecycle.                                                                                 ? What might be missing, and what
+                                                                                                 assumptions were made in cleaning
+                                                                                                 and engineering?
+
+                              Important!
+                                                                                                                             Page 37
+                              A “validation data set” is not the same as the validation of the data (see p 35.)
+Common Data Types
+Common data types include audio, image, tabular, text, and video. Data types more
+unique to DoD uses include LIDAR, RADAR, SONAR, electromagnetic spectrum data.
+
+
+
+ How is it relevant to testing?               What are best practices?                   What should testers ask?
+
+The range of data modalities can shape    Recent progress and innovations in AI       • What preprocessing techniques
+testing priorities. Some types that are   model applications have been borne            have been conducted on the varying
+good use cases for AI applications in     from advances in managing datasets.           data types?
+DoD are uncommon in industry.             For example, normalization and
+                                          regularization    have     accelerated
+The novelty of some DoD data types
+                                          progress in generative transformers for
+may drive the need for new evaluation
+                                          images and video.
+methods, to assure data quality and
+representativeness.                       Normalization scales the input features
+                                          to a similar range, which helps the
+This diversity of DoD environments,
+                                          model converge faster.
+data modalities, and mission purposes
+require a nuanced understanding of the    Regularization adds a penalty term to
+mission objectives and challenges to      the loss function to prevent overfitting.
+inform the handling of datasets.
+
+
+
+
+                                                                                                                 Page 38
+Common Data Sources
+This includes commercially curated datasets, open source data, lab environment data,
+manually collected data, real environment data, synthetic data, and other types of data.
+
+
+
+  How is it relevant to testing?               What are best practices?                What should testers ask?
+
+The nuances of data evaluation and its      • Create and maintain an inventory of   • How is representativeness validated
+required rigor will depend on a variety       data sources and documentation.         for data sources?
+of factors. The origin of the data can
+                                            • Ensure that data-related legal        • Has the data from a source
+influence testing priorities.
+                                              agreements and informed consent         undergone rigorous quality control
+Many data sources can introduce               procedures document data access         and is it reliable?
+opacity regarding data chain of custody       and re-use rights.
+                                                                                    • What is the chain of custody from a
+and curation processes, posing a
+                                                                                      data source and how it is verified?
+potential security risk. These risks give
+rise to additional testing requirements.                                            • Does the test team have adequate
+                                                                                      historical knowledge of the data’s
+A lack of historical knowledge about the
+                                                                                      provenance and processing?
+data’s provenance could introduce
+uncertainty about the amount of testing
+required.
+
+
+
+
+                                                                                                               Page 39
+Thinking about AI
+Models
+
+
+                                                   04
+This Section:
++ Describes the AI model lifecycle and its steps
++ Describes common machine learning paradigms
++ Describes common machine learning algorithms
+
+
+
+
+                                                    Page 40
+Thinking about AI Models
+Testers must ensure that the model is appropriate, accurate, reliable, secure, and
+compliant with the problem domain and the solution objectives.
+
+Testers should consider the problem type and complexity, the     The rest of the ‘Thinking about AI Models’ section covers:
+solution objectives and constraints, and the trade-offs and
+challenges of machine learning when planning a model
+evaluation. Different problems require different metrics and
+methods to measure the model performance and accuracy.                            The AI Model Lifecycle
+The evaluation should align with the solution goals and
+requirements and account for the solution constraints and                         Model type selection, feature selection, train
+limitations. The evaluation should also consider the potential                    & test, evaluate, deploy, monitor &
+issues and difficulties of machine learning, such as bias,                        maintenance
+overfitting, or interpretability. The most important aspect
+depends on the problem and context, but the evaluation
+should be valid, reliable, and meaningful.                                        Common Learning Paradigms
+                                                                                  Supervised, unsupervised, reinforcement
+
+
+
+                                                                                  Common Algorithm Types
+                                                                                  Neural nets, linear regression, decision tree,
+                                                                                  support vector machine, k-nearest neighbor
+
+
+
+
+                                                                                                                      Page 41
+      AI model performance lifecycle
+      Testers must ensure that the model is appropriate for the given problem and well
+      curated and documented across its lifecycle. The lifecycle is outlined below.
+
+
+      1 | Select                             3 | Train & Test                                          5 | Deploy
+Pick an architecture that                   Assign parameters &                                  Deploy model to
+ aligns to the problem                      iteratively train & test                          production with suitable
+                                                                                                methods and tools.
+
+
+
+
+                            2 | Define                                    4 | Evaluate                                   6 | Maintain
+                     Specify features, metrics,                     Ensure the performance                           Monitor and maintain
+                    and interpretation methods                       of the model against                            model performance
+                                                                      solution objectives
+
+
+
+
+                                         Important!
+                                         This process is far from linear! It’s inherently iterative!                        Page 42
+1 | Select your AI Model Architecture
+ A model architecture will set limits on model
+ performance and complexity. The optimal
+ model architecture will depend on the task and
+ resource requirements.
+
+
+
+
+  How is it relevant to testing?               What are best practices?                  What should testers ask?
+
+The choice of model architecture will      The most complicated architecture is      ? Is the complexity of the model
+set constraints on the performance         not always necessary. Begin iteratively     architecture appropriate for the
+criteria mentioned before. This is         with something basic and then add           accuracy, interpretability, and
+typically via architecture genre and       complexity if accuracy targets are not      latency requirements?
+complexity.                                met.
+                                                                                     ? Does the model architecture follow
+Different architectures or algorithms      Simpler architectures may offer higher      from successful employment in
+have different assumptions, limitations,   explainability but may have less            similar purposes and/or use cases?
+and performance criteria that need to      predictive capability.                      If not, why wasn’t another
+be tested and evaluated.                                                               architecture selected?
+                                           In some cases, AI may not be
+Testers should understand how              necessary at all. Try to identify if      ? Does the model architecture fit within
+interpretability changes as complexity     improved data collection or a               the operational constraints of the
+increases. The right balance between       deterministic algorithm would be            hardware that the model will be run
+complexity and interpretability hinges     sufficient.                                 on once deployed?
+on traits of the specific use case.
+
+                                                                                                                   Page 43
+2 | Define your Model Features
+ Features are transformed raw data used by the
+ model in training. Sometimes features are
+ engineered, and in other cases they are
+ learned by the model itself. Relevant features
+ must be selected either prior to or during
+ model training.
+
+
+
+
+  How is it relevant to testing?                    What are best practices?                    What should testers ask?
+
+This stage defines the data features           Define features in code! Using code to       ? Are the selected features relevant to
+that will be used by the model, the            engineer your features and maintaining         predicting the model’s output?
+performance metrics that will measure          a repository of code that reproduces all
+the model accuracy and reliability, and        decisions aides in review, auditing, and     ? Have the developers checked that
+the interpretation methods that will           reproducibility.                               features used do not serve as
+provide insight into the model logic and                                                      proxies for protected classes?
+decisions. The data features,                  Don’t assume features stay relevant or
+performance metrics, and interpretation        useless forever. Reevaluate their utility    ? Are the features observable in
+methods should be suitable for the             periodically.                                  available datasets?
+model type and the problem domain,
+and they should be tested and                                                               ? Are the features meaningful to
+validated for their quality and suitability.                                                  humans?
+
+                                                                                            ? Are the features static or could they
+                                                                                              be changed by an adversary?
+                 Example
+                 If area and price are in the input dataset, one could create the feature
+                 price per square foot which may result in a better performing model                                      Page 44
+3 | Train and Test your Model
+ Training involves iteratively updating a model’s
+ parameters by minimizing a loss function with
+ training data. Once a model is trained, its
+ performance is estimated by testing on data
+ split out for that purpose.
+
+
+
+
+ How is it relevant to testing?               What are best practices?               What should testers ask?
+
+During training, the model’s parameters   Document hyperparameters in a          ? What are meaningful metrics of
+are iteratively updated by minimizing a   manner sufficient to reproduce the       performance?
+loss function with training data.         training run.
+                                                                                 ? Does testing align with the
+Testing is measuring how well the         Utilize experiment tracking tools to     operational space
+model performs on data that it has not    reduce manual documentation
+seen before. The model training and       overhead.                              ? How much testing is adequate?
+testing processes should include
+checks for model correctness and                                                 ? Are training hyperparameters such
+latency.                                                                           as random seeds and learning rates
+                                                                                   documented?
+
+                                                                                 ? How does performance differ among
+                                                                                   subgroups in the test set?
+
+                                                                                 ? How should test results be
+                                                                                   monitored for drift?
+                                                                                                                 Page 45
+4 | Evaluate your Model
+ Check and confirm model’s alignment with
+ solution objectives and requirements.
+ Iteratively evaluate model on representative
+ data types. Monitor and address model trade-
+ offs, challenges, security, and compliance.
+
+
+
+
+  How is it relevant to testing?                What are best practices?                 What should testers ask?
+
+This stage involves checking and            Use cross-validation techniques to       ? Is the model architecture and
+confirming the model’s alignment with       estimate how well the model will           algorithm appropriate for the
+the solution objectives and                 generalize to new data.                    problem domain?
+requirements. The model is evaluated
+on different types of data that was held    Use appropriate performance metrics      ? Were the hyperparameters
+back from training data—the validation      that are meaningful in the use case.       optimized for performance?
+dataset. The model trade-offs and
+challenges, such as overfitting,            Check for bias and ensure that the       ? Was model trained on a separate
+underfitting, or interpretability is also   model is fair and unbiased.                subset of the data and evaluated on
+assessed and addressed in this stage.                                                  a different subset?
+The model’s security and compliance         Ensure that the model is interpretable
+issues are also ensured in this stage.      and can be explained to stakeholders.    ? How well will the model generalize to
+                                                                                       new data when cross-validation
+                                                                                       techniques are used?
+
+
+
+                                                                                                                  Page 46
+5 | Deploy your Model
+ Once the model is ready, it is exposed to users
+ in production. However, development and
+ testing of a model is never finished. Updates
+ and testing continue for the life of the
+ deployment.
+
+
+
+
+  How is it relevant to testing?                 What are best practices?                     What should testers ask?
+
+In this stage, the model is deployed         Monitor model performance in the             ? Does the deployed model’s
+using appropriate methods and tools,         deployed environment. While, on going          performance match what was
+such as cloud services or edge               model testing is not necessarily               expected from earlier testing?
+devices. The model performance and           standard DOD practice, performance
+functionality are monitored and              and other metrics of a deployed model        ? How can graduated fielding and/or
+maintained throughout its life, so           are likely to change over time.                beta users be utilized to reduce risk
+deployment should include setting up                                                        and test burden?
+the methods and tools for monitoring         Use gradually scaling rollouts to identify
+performance.                                 issues with a subset of users before
+                                             risking widespread failure.
+The model deployment process should
+be tested and ensured for its scalability,
+adaptability, availability, and fault
+tolerance.
+
+
+
+                                                                                                                        Page 47
+6 | Maintain your Model
+ Monitor and update model in production.
+ Retrain or modify model with new or updated
+ data. Test model on updated data or
+ environment. Repeat update cycle as needed.
+
+
+
+
+ How is it relevant to testing?               What are best practices?                    What should testers ask?
+
+The model needs to be constantly          Monitor model performance in the            ? How does the model fit into the
+updated and tested throughout the         deployed environment.                         broader curation approach for the
+deployment period. Updating the model                                                   project?
+means retraining it with new or revised   Automate tests and monitoring as
+data, or changing its structure or        possible to reduce manual overhead.         ? Is the monitoring approach sufficient
+parameters. Testing the model means                                                     to detect drift before it causes
+measuring its performance on the new      Model and/or system instrumentation           mission failures?
+data or situation. The updating and       and data collection automation is vital
+testing process is iterative and never-   for model evaluation and maintenance.       ? How much and what instrumentation
+ending, as the model has to adapt to      Often one of the hardest things is            is needed for the test strategy.
+the changing needs and feedback of        recording the data in the field.
+the users. The updating and testing                                                   ? Will the planned instrumentation
+process should also be evaluated and      The T&E strategy should identify what         yield the needed model metrics?
+enhanced for its speed, stability, and    instrumentation is needed, who
+adaptability.                             provides it, and the organizational roles
+                                          and responsibilities for verifying,
+                                          validating, and accrediting it.
+                                                                                                                   Page 48
+Common Learning Paradigms
+The nuances of AI model evaluation will depend on a variety of factors, including the
+model’s learning paradigm. Some systems use combinations of multiple paradigms.
+
+
+
+       Supervised Learning                       Unsupervised Learning                     Reinforcement Learning
+
+These models find a function that maps      These models identify underlying          These models learn how to take
+input data to output data (i.e., labels),   patterns or structures within the data    courses of action in an environment
+by iteratively adjusting a set of           without mapping to known ground truth.    from trial and error based on rewards
+parameters      and    calculating   the    Evaluation of unsupervised learning       for being correct and penalties for being
+difference    between     the    model’s    models can be challenging because         incorrect.   To     test  reinforcement
+answers and the correct answers. This       their assessment often relies on expert   learning models, it may be necessary to
+is called the training process.             judgement      of     the      modeled    use a dynamic test environment that
+Supervised models are commonly              output. Unsupervised models are used      allows testers to assess how the model
+evaluated on their predictions using        to characterize the unconditional         interacts with and adapts to its
+test data that was held back during         distribution of the data, often by        surroundings. The approach trains an
+training. The paradigm is used in           grouping observations based on            algorithm through interactions with the
+Classification and regression.              similarity as with clustering and         environment and a sequence of
+                                            association problems.                     rewards for optimal behavior.
+
+
+
+
+                                                                                                                    Page 49
+Common Algorithm Types
+The next section introduces some of the common types of algorithms used in machine
+learning development.
+
+Many machine learning algorithms are
+useful for more than one type of
+analytical task. For instance, support
+vector machines are commonly used
+for either regression or classification
+tasks.
+While there are many variations of each
+of these approaches (classification,
+regression, clustering, and generative),
+this section will outline a basic
+introduction to the concepts and
+provide some key consideration for
+testers.
+Reflecting differing communities, some
+overlap exists in calling these
+algorithms        versus      analytical
+approaches or statistical methods.
+
+
+
+
+                                                                             Page 50
+Classification
+                                             Classification models are a type of supervised learning model used
+                                             to predict the category or class of new, unseen data based on the
+                                             model learning from a labeled dataset.
+
+
+
+                                                      You should know                         What should testers ask?
+
+                                            • Evaluation metrics include accuracy,        ? What is the purpose of the model?
+                                              precision, recall, F1 score, and more
+                                                                                          ? How should the model be evaluated
+                                            • Hyperparameters are set before                and what are the evaluation metrics?
+                                              training begins and can have a
+                                                                                          ? What are the characteristics of the
+                                              significant impact on the
+                                                                                            training and test data in terms of its
+                                              performance of the model
+                                                                                            diversity, realism, and coherence.
+                                            • Overfitting is a common problem in
+                                                                                          ? Are the features of the test data well
+   Examples in DoD systems                    classification models. Overfitting can
+                                                                                            aligned to that of the training data?
+                                              be mitigated with techniques like
+                                                                                            Are the training and test data
+                                              regularization, early stopping, data
+• Automatic target recognition systems                                                      representative of the expected
+                                              augmentation, dropout, and
+  such as DARPA’s Target                                                                    context of the model?
+                                              ensemble methods
+  Recognition and Adaption in
+                                                                                          ? What are the limitations of the
+  Contested Environments (TRACE)
+                                                                                            model?
+• Predictive maintenance on
+                                                                                          ? What is the expected behavior of the
+  helicopter engines in the 160th
+                                                                                            model in operating contexts outside
+  Special Operations Aviation
+                                                                                            of the design context?
+  Regiment (SOAR)
+
+
+
+
+                   Common           Logistic regression, neural networks, K-nearest neighbors, decision trees,
+                  Algorithms        support vector machines                                                              Page 51
+Regression
+                                             Regression models involve input and output of continuous values
+                                             and vary from simple linear regression to many more complex
+                                             types.
+
+
+
+                                                     You should know                        What should testers ask?
+
+                                            • Regression as an algorithm or a kind      ? What is the purpose of the model?
+                                              of analysis is not the same as
+                                                                                        ? Are both average and maximum
+                                              “regression testing”
+                                                                                          errors acceptable?
+                                            • Regression problems can be turned
+                                                                                        ? If the regression method assumes
+                                              into classification problems by
+                                                                                          certain properties of the data or
+                                              binning
+                                                                                          residuals, are those assumptions
+                                            • Normally, regression is used in             valid?
+    Examples in DoD systems                   applications in which a continuous
+                                              value must be predicted from
+                                              another continuous value or multiple
+Regression has been applied many
+                                              values. An example could be
+times over many decades. A few
+                                              predicting the numbers of hours
+examples are:
+                                              before a component fails from the
+• Estimating years of service                 measured viscosity and temperature
+  remaining for a service member              of the component’s lubricant.
+• Predicting cost of a project
+• Estimating yield for explosives
+• Predicting component time to failure
+
+
+                    Common
+                                    Linear, multivariate, polynomial, LASSO, ridge, and Poisson regression          Page 52
+                   Algorithms
+Clustering
+                                              Clustering models are a type of unsupervised learning model used
+                                              to group similar points or “clusters” based on their features.
+
+
+
+                                                      You should know                        What should testers ask?
+
+                                             Clustering algorithm output can be          ? What is the purpose of the model?
+                                             highly influenced by initialization
+                                                                                         ? Do clusters align with what ground
+                                             conditions and user-selected
+                                                                                           truth is known?
+                                             parameters.
+                                                                                         ? What is the purpose of the model?
+                                             The definition of similarity is typically
+                                             developed by subject matter experts         ? How should the model be evaluated
+                                             that are knowledgeable in the expected        and what are the evaluation metrics?
+                                             use case for the model.
+    Examples in DoD systems                                                              ? What are the characteristics of the
+                                             Some evaluation metrics for clustering        data to be clustered and what are
+                                             models include silhouette score,              the defining characteristics of the
+• Identify operational cells from
+                                             Davies-Bouldin index, Calinski-               desired clusters?
+  location tracking data
+                                             Harabasz index, homogeneity score,
+                                                                                         ? What are the limitations of the model
+• Categorizing types of users on a           completeness score, and V-measure.
+                                                                                           and how should it perform when
+  network based on activity logs
+                                             The best partition and optimal cluster        operating on data that are approach
+• Social network analysis to identify        number is typically determined in the         the boundaries of the operational
+  threats to current events                  context of the use case.                      use case?
+
+
+
+
+                    Common
+                                     K-means, hierarchical, DBSCAN, Mean-shift, spectral clustering                    Page 53
+                   Algorithms
+Generative
+                                            Generative models are a class of statistical models that aim to
+                                            capture the underlying patterns or distributions of data in order to
+                                            generate new, similar data.
+
+
+
+                                                    You should know                          What should testers ask?
+
+                                           • Generative models are more                ? What is the purpose of the model?
+                                             multipurpose than other algorithm
+                                                                                       ? How will we develop appropriate
+                                             types
+                                                                                         evaluation metrics that are relevant
+                                           • There is often no straightforward           to the intended use and ensure that
+                                             ground truth with which to compare          they are applied consistently
+                                             generations                                 throughout the evaluation process?
+                                           • System performance is strongly            ? What is the quality of the generated
+   Examples in DoD systems                   affected by the interaction of user         data including aspects such as
+                                             and system (e.g. prompts used)              diversity, realism, and coherence?
+• Task Force Lima has been formed to       • Generative models are typically           ? How do results from the model under
+  assess, synchronize, and employ            more resource intensive to train and        test compare to other models that
+  generative AI across the DoD               operate due to their scale                  were developed for similar
+                                           • This area is evolving on the scale of       purposes?
+• Large language models are being
+  explored in many areas to better           months. Expect rapid change.              ? What is the impact of variations in
+  understand appropriate use cases                                                       data quality on model performance?
+• Research at DARPA aims to extend                                                     ? Is the model generating content that
+  generative capabilities using cross-                                                   is inappropriate or dangerous?
+  modal (text, image, video) data
+
+
+                   Common
+                                   Diffusion models, transformers, autoregressive decoders                          Page 54
+                  Algorithms
+Thinking about
+Context
+
+
+                                                                    05
+This Section:
++ Discusses use cases of the model, including how it will be used
+  and what problems it will solve.
++ Outlines considerations about the environment in which the
+  model will operate, including data sources, data transport,
+  computing resources, and security.
+
+
+
+
+                                                                     Page 55
+Use Case
+The use case is a plain language description or story of how the
+model will be used and what problem it addresses. The use case
+provides key context for evaluating its effectiveness and how it is
+relevant to the problem at hand.
+
+
+            The basics                          What should you know?
+
+The use cases for the system should        Leverage the use cases to understand
+be defined in detail and be consistent     operations and capability supported
+with the Concept of Operations             and how the AI will fulfill operational
+(CONOPS)       and      Concept     of     needs.
+Employment (CONEMP).                       The task outcomes require metrics that
+Ideally, the designers and developers      define success.
+have created use cases. Testers            The metrics manifest from the
+should review use cases and contribute     interactions between users and units             What should you ask?
+to their improvement if needed.            employing their systems and the
+                                           environments in which they operate.
+DoD systems are intended to enable                                                    • Is the model a stand alone
+                                           The AI systems and components roles          application, part of a larger software
+users and units to accomplish their
+                                           in these tasks should be clear. The          system, or a component in a
+assigned missions.
+                                           challenge for testers is to identify the     physical (hardware) system?
+                                           problem and use case for the AI model      • Does AI change the use case of the
+                                           and how the larger metrics of task           system it replaces?
+                                           success are connected to specific
+                                                                                      • How does AI affect individual users’
+                                           characteristics of the AI
+                                                                                        actions?
+                                           model performance.
+                                                                                      • How does AI affect units’ actions
+                                                                                        (collective action)?
+
+                   Similar
+                                User story, end user, user-centered design                                          Page 56
+                   Terms
+Environment
+Consider the available computing resources, network constraints,
+and security environment that should be incorporated into the
+testing approach.
+
+
+
+             The basics                           What should you know?
+
+Testers need to consider how the             Testing must be able to realistically
+characteristics of the environment drive     portray the data sources the model
+test requirements and how those are          requires in fielded operations.
+connected with the model.
+                                             Testing must account for the data
+Key items of the environment are:            transport infrastructure. Models
+• Network connections                        operating on ships, aircraft,
+                                             submarines, etc. will have varying
+• Computing resources                        throughput and stability and may not
+                                             have connections to the internet.                  What should you ask?
+• Security
+                                             Testing must match the fielded
+                                                                                          ? What changes in data sources over
+                                             computing resources (memory,
+                                                                                            time should be expected?
+                                             processor, and power).
+                                                                                          ? How will software updates impact
+                                             Testing must account for the security
+                                                                                            data sources?
+                                             constraints in fielded operations (level
+                                             of classification, sensitive data,           ? How will data sources and transport
+                                             restricted access).                            vary by operating location?
+                                             Classification can also place                ? What data and network connectivity
+                                             requirements on how data is handled            will exist in classified environments?
+                                             and shared.
+
+                    Similar       Containerization, development vs production, scalability, edge computing,
+                    Terms         TinyML, knowledge distillation, airgapping                                            Page 57
+Thinking about
+Documentation
+
+
+                                                                     06
+This Section:
++ Discusses data cards and data characteristics
++ Discusses model cards and model characteristics
++ Outlines version control, automated documentation, test metrics,
+  and context characteristics
+
+
+
+
+                                                                      Page 58
+Documentation
+Comprehensive documentation, including the data sources, preprocessing, modeling
+techniques, evaluation metrics, is essential to inform tests of the fielded model.
+
+
+
+           Surround your documentation with best practices                               Documentation helps ensure
+
+Version Control                                                                        The AI model is:
+• All documentation should be versioned and curated alongside the model itself and     • compliant with relevant regulations
+  the associated versioned data to facilitate version comparisons, auditing,             and standards,
+  transparency, and roll back decisions.
+                                                                                       • comprehensively tested for all key
+Automated documentation                                                                  use cases and fielded contexts,
+• Where feasible, automation tools should be adopted to reduce the workload of         • monitored appropriately for behavior
+  creating and maintaining comprehensive documentation.                                  drift and data drift, and
+Evaluation Metrics and Results                                                         • transparent and understandable
+• The documentation should detail the performance of the model in terms of
+  standard metrics such as accuracy, precision, recall, F1 score, AUC-ROC, etc.
+  Additionally, the documentation should describe the test set used for evaluation,
+  its composition, and any biases it may contain.
+Operational Characteristics
+• The documentation should contain a section that identifies the intended use cases
+  of the model, its limitations, and potential risks associated with its deployment.
+  This could also cover any post-deployment considerations such as monitoring,
+  retraining strategies, and contingency plans for unexpected model behavior.
+
+
+
+
+                                                                                                                   Page 59
+Data Characteristics
+                           Repeatability requires solid data documentation.
+
+
+
+                          What should be documented?                                           Specifics to include
+
+• Contains thorough documentation of the training and test data. This includes how    • The data,
+  the data was collected, its overall composition, any cleaning or preprocessing
+                                                                                      • Meta-data,
+  steps, and any data privacy considerations. Documenting potential biases in the
+  training data is also important.                                                    • Data dictionaries,
+• Identify stakeholders and collaborators across the dataset’s lifecycle              • Location of data and code,
+• Collect documentation and other information to populate a Data Card                 • Source information,
+• Collect Data                                                                        • Points of contact,
+• Collect Code in a repository with documentation of code                             • A change log,
+• Evaluate, assess, and audit the information for completeness, correctness,          • A chain of custody record,
+  transparency and usefulness                                                         • Known limitations and caveats,
+• Version control: All documentation should be versioned alongside the model itself   • Code that reproduces cleaning,
+  and the associated versioned data to facilitate version comparisons, auditing,        merging, engineering, preparation,
+  transparency, and roll back decisions.                                                etc. and
+• Collaboratively review and update content and code                                  • other relevant information
+
+
+
+
+                                                                                                                     Page 60
+                                                                                                                          60
+Data Card
+   The Data Cards Playbook, shown below, is licensed under a Creative Commons
+                 Attribution-Share Alike 4.0 International License
+
+
+      What should you know?                    Example Data Card
+
+• The image at right shows the first 2
+  sections of an example of a data
+  card template from
+  https://sites.research.google/datacar
+  dsplaybook/.
+• Best practices in documenting data
+  is an active area of development and
+  you should expect to see evolution
+  there.
+• More recommendations for the
+  content and structure of a Data Card
+  can be found at
+   https://doi.org/10.1145/3531146.353
+   3231
+   https://arxiv.org/abs/2204.01075
+   https://ai.googleblog.com/2022/11/t
+   he-data-cards-playbook-toolkit-
+   for.html
+
+
+
+                                                                        Page 61
+                                                                             61
+Model Characteristics
+                           Repeatability requires solid model documentation.
+
+
+
+                            What should be documented?                                                Specifics to include
+
+Model documentation is an integral part of AI model test and evaluation. Thorough            • Model details
+documentation is pivotal to promote transparency, enhance reproducibility, facilitate
+model understanding, and enable responsible usage. A model’s documentation                      • date, version, type, architecture,
+should encompass the following:                                                                   training algorithms, parameters,
+                                                                                                  fairness constraints, contact
+Model Description                                                                                 information, citation details,
+• Provides details of the model’s architecture and function. It includes the problem it           license info
+  is intended to solve, type (e.g., regression, classification, neural network), its input   • Intended use
+  and output types, and the techniques used in its training. It should also note
+  unique characteristics that distinguish it.                                                • Performance metrics
+Training Process                                                                             • Training data
+• Documentation should describe the training methodology, including any                      • Quantitative analysis
+  preprocessing steps, the type of learning algorithm(s) employed, model parameter           • Ethical considerations and
+  settings, performance metrics used, and any techniques applied to avoid                      recommendations
+  overfitting (like regularization, dropout, or data augmentation).
+Information about the computing resources used can also be mentioned if applicable.
+
+
+
+
+                                                                                                                            Page 62
+                                                                                                                                 62
+Model Card
+                         Below is an example model card from:
+           https://www.tensorflow.org/responsible_ai/model_card_toolkit/guide
+
+
+      What should you know?                        Model Card Example
+
+Introduced by researchers at Google, a
+model card serves as a concise yet
+comprehensive "report card" for a
+trained ML model. It is designed to
+provide essential information that
+allows evaluators, users, and
+stakeholders to understand the model's
+behavior and make informed decisions
+about its deployment. A model card
+typically includes the categories of
+documentation mentioned on the prior
+page. To aid their creation, some
+organizations have built model card
+tools. Two popular examples are
+Huggingface’s Model Card Writing Tool
+and Google’s Model Card Toolkit.
+
+
+
+
+                                                                                Page 63
+                                                                                     63
+CONCLUSION
+
+
+                                                                     07
++ Testers should consider the operational use case, the
+  environment, the data, the learning paradigm, and the algorithms
+  in planning and conducting a rigorous evaluation of the AI
+  model.
++ Solid documentation and deliberate curation of the data, the
+  model, and surrounding context is required for repeatability.
+
+
+
+
+                                                                      Page 64
+AI Model T&E Framework
+                                           Rigorous and comprehensive T&E for AI models is vital and
+                                           demands innovation and adaptation as the field rapidly evolves.
+
+
+
+                                                    You should know                     What should testers ask?
+
+                                           Solid T&E strategy development            ? Is our test strategy comprehensive?
+                                           remains vital                             ? Are the test methods appropriate?
+                                           AI models are in a period of very rapid   ? Was the data split reasonable?
+                                           experimentation and innovation. Self-     ? How does the fielded context impact
+                                           education is necessary to maintain          the T&E plan?
+                                           awareness of new test requirements        ? Did the documentation sufficiently
+                                           and approaches.                             support the test planning & conduct
+
+
+
+          The bottom line
+
+• Data is the foundation of the
+  performance of an AI model
+  regardless of the algorithm, learning
+  paradigm, and parameter settings.
+• Insight into the lifecycle of AI model
+  development enables rigorous T&E
+• Documentation should cover
+  everything needed to inform testing
+  for the fielded model.
+
+
+
+                                                                                                                 Page 65
+

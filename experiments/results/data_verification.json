@@ -1,0 +1,135 @@
+{
+  "splits": {
+    "train": {
+      "repos": [
+        "black",
+        "click",
+        "express",
+        "fastify",
+        "flask",
+        "requests",
+        "rich"
+      ],
+      "sessions": 4266,
+      "hunks": 12600,
+      "aligned": 9828,
+      "misaligned": 2772,
+      "drift": {
+        "collateral": 1248,
+        "scope_expansion": 915,
+        "purpose_drift": 609
+      },
+      "tiers": {
+        "hard": 1462,
+        "random": 1310
+      },
+      "languages": {
+        "Python": 7701,
+        "JavaScript": 4899
+      },
+      "median_hunks_per_session": 2.0,
+      "max_hunks_per_session": 14
+    },
+    "val": {
+      "repos": [
+        "chalk",
+        "got",
+        "koa",
+        "sqlmodel",
+        "typer"
+      ],
+      "sessions": 921,
+      "hunks": 2700,
+      "aligned": 2106,
+      "misaligned": 594,
+      "drift": {
+        "collateral": 267,
+        "scope_expansion": 196,
+        "purpose_drift": 131
+      },
+      "tiers": {
+        "random": 317,
+        "hard": 277
+      },
+      "languages": {
+        "TypeScript": 1069,
+        "Python": 818,
+        "JavaScript": 813
+      },
+      "median_hunks_per_session": 2.0,
+      "max_hunks_per_session": 13
+    },
+    "test": {
+      "repos": [
+        "attrs",
+        "axios",
+        "httpx"
+      ],
+      "sessions": 924,
+      "hunks": 2700,
+      "aligned": 2106,
+      "misaligned": 594,
+      "drift": {
+        "collateral": 267,
+        "scope_expansion": 196,
+        "purpose_drift": 131
+      },
+      "tiers": {
+        "random": 333,
+        "hard": 261
+      },
+      "languages": {
+        "Python": 1686,
+        "JavaScript": 1014
+      },
+      "median_hunks_per_session": 2.0,
+      "max_hunks_per_session": 13
+    }
+  },
+  "checks": {
+    "repos_shared_across_splits": 0,
+    "total_hunks": 18000,
+    "total_sessions": 6111,
+    "distinct_source_commits": 6111,
+    "language_counts": {
+      "Python": 10205,
+      "JavaScript": 6726,
+      "TypeScript": 1069
+    },
+    "train_label_flips": 569,
+    "train_label_ne_clean": 569,
+    "val_test_label_eq_clean": true,
+    "noise_rows_any": 18000,
+    "noise_rows_any_notnone": 4529,
+    "noise_types_values_sample": {
+      "none": 13471,
+      "intent_turn": 2396,
+      "duplicate_hunk": 610,
+      "label_flip": 450,
+      "non_semantic_hunk": 388,
+      "non_semantic_hunk|duplicate_hunk": 155,
+      "truncation": 127,
+      "intent_turn|duplicate_hunk": 104
+    },
+    "intent_noise_type": {
+      "none": 15270,
+      "chit_chat": 1291,
+      "retraction": 914,
+      "repeated_turn": 525
+    },
+    "non_semantic_reason": {
+      "none": 17286,
+      "whitespace_only": 343,
+      "lockfile": 202,
+      "version_bump_only": 143,
+      "generated_or_minified": 26
+    },
+    "is_duplicate_hunk": 937,
+    "exceeds_max_len": 198,
+    "approx_tokens_median_p95_max": [
+      132.0,
+      455.0,
+      4031.0
+    ]
+  }
+}
